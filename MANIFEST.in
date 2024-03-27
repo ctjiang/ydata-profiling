@@ -16,6 +16,9 @@ include src/ydata_profiling/*.yaml
 # Spark Dev venv
 recursive-include venv *.yml
 
+# Locale resources
+recursive-include src/ydata_profiling/locales *
+
 # Exclude development, docs, testing and example code
 exclude .pre-commit-config.yaml
 exclude commitlint.config.js

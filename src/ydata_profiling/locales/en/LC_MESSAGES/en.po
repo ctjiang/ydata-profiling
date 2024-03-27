@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-03-15 15:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: overview.py:29
+msgid "Number of variables"
+msgstr ""
+
+#: overview.py:33
+msgid "Number of observations"
+msgstr ""
+
+#: overview.py:37
+msgid "Missing cells"
+msgstr ""
+
+#: overview.py:41
+msgid "Missing cells (%)"
+msgstr ""
+
+#: overview.py:49
+msgid "Duplicate rows"
+msgstr ""
+
+#: overview.py:53
+msgid "Duplicate rows (%)"
+msgstr ""
+
+#: overview.py:62
+msgid "Total size in memory"
+msgstr ""
+
+#: overview.py:66
+msgid "Average record size in memory"
+msgstr ""
+
+#: overview.py:73
+msgid "Dataset statistics"
+msgstr ""
+
+#: overview.py:84
+msgid "Variable types"
+msgstr ""
+
+#: overview.py:91
+msgid "Overview"
+msgstr ""
+
+#: overview.py:107
+msgid "URL"
+msgstr ""
+
+#: overview.py:116 overview.py:123
+msgid "Copyright"
+msgstr ""
+
+#: overview.py:134 overview.py:139
+msgid "Dataset"
+msgstr ""
+
+#: overview.py:172
+msgid "Analysis started"
+msgstr ""
+
+#: overview.py:173
+msgid "Analysis finished"
+msgstr ""
+
+#: overview.py:174
+msgid "Duration"
+msgstr ""
+
+#: overview.py:175
+msgid "Software version"
+msgstr ""
+
+#: overview.py:176
+msgid "Download configuration"
+msgstr ""
+
+#: overview.py:178 overview.py:185
+msgid "Reproduction"
+msgstr ""
+
+#: overview.py:208
+msgid "Variable descriptions"
+msgstr ""
+
+#: overview.py:216
+msgid "Variables"
+msgstr ""
+
+#: overview.py:261 overview.py:270
+msgid "Alerts ({})"
+msgstr ""
+
+#: overview.py:286
+msgid "Number of series"
+msgstr ""
+
+#: overview.py:290
+msgid "Time series length"
+msgstr ""
+
+#: overview.py:294
+msgid "Starting point"
+msgstr ""
+
+#: overview.py:298
+msgid "Ending point"
+msgstr ""
+
+#: overview.py:302
+msgid "Period"
+msgstr ""
+
+#: overview.py:307
+msgid "Timeseries statistics"
+msgstr ""
+
+#: overview.py:315
+msgid "Original"
+msgstr ""
+
+#: overview.py:322
+msgid "Scaled"
+msgstr ""
+
+#: overview.py:336
+msgid "Time Series"
+msgstr ""
+

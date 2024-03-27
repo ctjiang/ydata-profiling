@@ -22,23 +22,22 @@ from ydata_profiling.report.presentation.core import Table
 from ydata_profiling.report.presentation.core.renderable import Renderable
 from ydata_profiling.visualisation.plot import plot_overview_timeseries
 
-
 def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderable:
     table_metrics = [
         {
-            "name": "Number of variables",
+            "name": _("Number of variables"),
             "value": fmt_number(summary.table["n_var"]),
         },
         {
-            "name": "Number of observations",
+            "name": _("Number of observations"),
             "value": fmt_number(summary.table["n"]),
         },
         {
-            "name": "Missing cells",
+            "name": _("Missing cells"),
             "value": fmt_number(summary.table["n_cells_missing"]),
         },
         {
-            "name": "Missing cells (%)",
+            "name": _("Missing cells (%)"),
             "value": fmt_percent(summary.table["p_cells_missing"]),
         },
     ]
@@ -46,11 +45,11 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
         table_metrics.extend(
             [
                 {
-                    "name": "Duplicate rows",
+                    "name": _("Duplicate rows"),
                     "value": fmt_number(summary.table["n_duplicates"]),
                 },
                 {
-                    "name": "Duplicate rows (%)",
+                    "name": _("Duplicate rows (%)"),
                     "value": fmt_percent(summary.table["p_duplicates"]),
                 },
             ]
@@ -59,18 +58,18 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
         table_metrics.extend(
             [
                 {
-                    "name": "Total size in memory",
+                    "name": _("Total size in memory"),
                     "value": fmt_bytesize(summary.table["memory_size"]),
                 },
                 {
-                    "name": "Average record size in memory",
+                    "name": _("Average record size in memory"),
                     "value": fmt_bytesize(summary.table["record_size"]),
                 },
             ]
         )
 
     dataset_info = Table(
-        table_metrics, name="Dataset statistics", style=config.html.style
+        table_metrics, name=_("Dataset statistics"), style=config.html.style
     )
 
     dataset_types = Table(
@@ -81,14 +80,14 @@ def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderab
             }
             for type_name, count in summary.table["types"].items()
         ],
-        name="Variable types",
+        name=_("Variable types"),
         style=config.html.style,
     )
 
     return Container(
         [dataset_info, dataset_types],
         anchor_id="dataset_overview",
-        name="Overview",
+        name=_("Overview"),
         sequence_type="grid",
     )
 
@@ -104,7 +103,7 @@ def get_dataset_schema(config: Settings, metadata: dict) -> Container:
     if "url" in metadata:
         about_dataset.append(
             {
-                "name": "URL",
+                "name": _("URL"),
                 "value": f'<a href="{metadata["url"]}">{metadata["url"]}</a>',
             }
         )
@@ -113,14 +112,14 @@ def get_dataset_schema(config: Settings, metadata: dict) -> Container:
         if "copyright_year" not in metadata:
             about_dataset.append(
                 {
-                    "name": "Copyright",
+                    "name": _("Copyright"),
                     "value": fmt(f"(c) {metadata['copyright_holder']}"),
                 }
             )
         else:
             about_dataset.append(
                 {
-                    "name": "Copyright",
+                    "name": _("Copyright"),
                     "value": fmt(
                         f"(c) {metadata['copyright_holder']} {metadata['copyright_year']}"
                     ),
@@ -131,12 +130,12 @@ def get_dataset_schema(config: Settings, metadata: dict) -> Container:
         [
             Table(
                 about_dataset,
-                name="Dataset",
+                name=_("Dataset"),
                 anchor_id="metadata_dataset",
                 style=config.html.style,
             )
         ],
-        name="Dataset",
+        name=_("Dataset"),
         anchor_id="dataset",
         sequence_type="grid",
     )
@@ -169,20 +168,20 @@ def get_dataset_reproduction(config: Settings, summary: BaseDescription) -> Rend
 
     reproduction_table = Table(
         [
-            {"name": "Analysis started", "value": fmt(date_start)},
-            {"name": "Analysis finished", "value": fmt(date_end)},
-            {"name": "Duration", "value": fmt_timespan(duration)},
-            {"name": "Software version", "value": fmt_version(version)},
-            {"name": "Download configuration", "value": fmt_config(config_file)},
+            {"name": _("Analysis started"), "value": fmt(date_start)},
+            {"name": _("Analysis finished"), "value": fmt(date_end)},
+            {"name": _("Duration"), "value": fmt_timespan(duration)},
+            {"name": _("Software version"), "value": fmt_version(version)},
+            {"name": _("Download configuration"), "value": fmt_config(config_file)},
         ],
-        name="Reproduction",
+        name=_("Reproduction"),
         anchor_id="overview_reproduction",
         style=config.html.style,
     )
 
     return Container(
         [reproduction_table],
-        name="Reproduction",
+        name=_("Reproduction"),
         anchor_id="reproduction",
         sequence_type="grid",
     )
@@ -205,7 +204,7 @@ def get_dataset_column_definitions(config: Settings, definitions: dict) -> Conta
                 {"name": column, "value": fmt(value)}
                 for column, value in definitions.items()
             ],
-            name="Variable descriptions",
+            name=_("Variable descriptions"),
             anchor_id="variable_definition_table",
             style=config.html.style,
         )
@@ -213,7 +212,7 @@ def get_dataset_column_definitions(config: Settings, definitions: dict) -> Conta
 
     return Container(
         variable_descriptions,
-        name="Variables",
+        name=_("Variables"),
         anchor_id="variable_descriptions",
         sequence_type="grid",
     )
@@ -258,7 +257,8 @@ def get_dataset_alerts(config: Settings, alerts: list) -> Alerts:
 
         return Alerts(
             alerts=combined_alerts,
-            name=f"Alerts ({count})",
+            #name=f"Alerts ({count})",
+            name=_("Alerts ({})").format(count),
             anchor_id="alerts",
             style=config.html.style,
         )
@@ -266,7 +266,8 @@ def get_dataset_alerts(config: Settings, alerts: list) -> Alerts:
     count = len([alert for alert in alerts if alert.alert_type != AlertType.REJECTED])
     return Alerts(
         alerts=alerts,
-        name=f"Alerts ({count})",
+        #name=f"Alerts ({count})",
+        name=_("Alerts ({})").format(count),
         anchor_id="alerts",
         style=config.html.style,
     )
@@ -283,28 +284,28 @@ def get_timeseries_items(config: Settings, summary: BaseDescription) -> Containe
     assert isinstance(summary.time_index_analysis, TimeIndexAnalysis)
     table_stats = [
         {
-            "name": "Number of series",
+            "name": _("Number of series"),
             "value": fmt_number(summary.time_index_analysis.n_series),
         },
         {
-            "name": "Time series length",
+            "name": _("Time series length"),
             "value": fmt_number(summary.time_index_analysis.length),
         },
         {
-            "name": "Starting point",
+            "name": _("Starting point"),
             "value": fmt_tsindex_limit(summary.time_index_analysis.start),
         },
         {
-            "name": "Ending point",
+            "name": _("Ending point"),
             "value": fmt_tsindex_limit(summary.time_index_analysis.end),
         },
         {
-            "name": "Period",
+            "name": _("Period"),
             "value": fmt_timespan_timedelta(summary.time_index_analysis.period),
         },
     ]
 
-    ts_info = Table(table_stats, name="Timeseries statistics", style=config.html.style)
+    ts_info = Table(table_stats, name=_("Timeseries statistics"), style=config.html.style)
 
     dpi_bak = config.plot.dpi
     config.plot.dpi = 300
@@ -312,14 +313,14 @@ def get_timeseries_items(config: Settings, summary: BaseDescription) -> Containe
         plot_overview_timeseries(config, summary.variables),
         image_format=config.plot.image_format,
         alt="ts_plot",
-        name="Original",
+        name=_("Original"),
         anchor_id="ts_plot_overview",
     )
     timeseries_scaled = ImageWidget(
         plot_overview_timeseries(config, summary.variables, scale=True),
         image_format=config.plot.image_format,
         alt="ts_plot_scaled",
-        name="Scaled",
+        name=_("Scaled"),
         anchor_id="ts_plot_scaled_overview",
     )
     config.plot.dpi = dpi_bak
@@ -333,7 +334,7 @@ def get_timeseries_items(config: Settings, summary: BaseDescription) -> Containe
     return Container(
         [ts_info, ts_tab],
         anchor_id="timeseries_overview",
-        name="Time Series",
+        name=_("Time Series"),
         sequence_type="grid",
     )
 
