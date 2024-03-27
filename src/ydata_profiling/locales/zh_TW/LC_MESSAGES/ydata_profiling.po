@@ -1,0 +1,259 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2024-03-27 17:39+0800\n"
+"PO-Revision-Date: 2024-03-27 17:47+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: report/structure/correlations.py\n"
+"X-Poedit-SearchPath-1: report/structure/overview.py\n"
+"X-Poedit-SearchPath-2: report/structure/report.py\n"
+"X-Poedit-SearchPath-3: report/structure/variables/render_url.py\n"
+"X-Poedit-SearchPath-4: report/structure/variables/render_boolean.py\n"
+"X-Poedit-SearchPath-5: report/structure/variables/render_categorical.py\n"
+"X-Poedit-SearchPath-6: report/structure/variables/render_common.py\n"
+"X-Poedit-SearchPath-7: report/structure/variables/render_complex.py\n"
+"X-Poedit-SearchPath-8: report/structure/variables/render_count.py\n"
+"X-Poedit-SearchPath-9: report/structure/variables/render_date.py\n"
+"X-Poedit-SearchPath-10: report/structure/variables/render_file.py\n"
+"X-Poedit-SearchPath-11: report/structure/variables/render_generic.py\n"
+"X-Poedit-SearchPath-12: report/structure/variables/render_image.py\n"
+"X-Poedit-SearchPath-13: report/structure/variables/render_path.py\n"
+"X-Poedit-SearchPath-14: report/structure/variables/render_real.py\n"
+"X-Poedit-SearchPath-15: report/structure/variables/render_text.py\n"
+"X-Poedit-SearchPath-16: report/structure/variables/render_timeseries.py\n"
+"X-Poedit-SearchPath-17: model/alerts.py\n"
+"X-Poedit-SearchPath-18: model/correlations.py\n"
+"X-Poedit-SearchPath-19: model/dataframe.py\n"
+"X-Poedit-SearchPath-20: model/describe.py\n"
+"X-Poedit-SearchPath-21: model/description.py\n"
+"X-Poedit-SearchPath-22: model/duplicates.py\n"
+"X-Poedit-SearchPath-23: model/expectation_algorithms.py\n"
+"X-Poedit-SearchPath-24: model/handler.py\n"
+"X-Poedit-SearchPath-25: model/missing.py\n"
+"X-Poedit-SearchPath-26: model/pairwise.py\n"
+"X-Poedit-SearchPath-27: model/sample.py\n"
+"X-Poedit-SearchPath-28: model/summarizer.py\n"
+"X-Poedit-SearchPath-29: model/summary.py\n"
+"X-Poedit-SearchPath-30: model/summary_algorithms.py\n"
+"X-Poedit-SearchPath-31: model/table.py\n"
+"X-Poedit-SearchPath-32: model/timeseries_index.py\n"
+"X-Poedit-SearchPath-33: model/typeset.py\n"
+"X-Poedit-SearchPath-34: model/typeset_relations.py\n"
+"X-Poedit-SearchPath-35: model/pandas/correlations_pandas.py\n"
+"X-Poedit-SearchPath-36: model/pandas/dataframe_pandas.py\n"
+"X-Poedit-SearchPath-37: model/pandas/describe_boolean_pandas.py\n"
+"X-Poedit-SearchPath-38: model/pandas/describe_categorical_pandas.py\n"
+"X-Poedit-SearchPath-39: model/pandas/describe_counts_pandas.py\n"
+"X-Poedit-SearchPath-40: model/pandas/describe_date_pandas.py\n"
+"X-Poedit-SearchPath-41: model/pandas/describe_file_pandas.py\n"
+"X-Poedit-SearchPath-42: model/pandas/describe_generic_pandas.py\n"
+"X-Poedit-SearchPath-43: model/pandas/describe_image_pandas.py\n"
+"X-Poedit-SearchPath-44: model/pandas/describe_numeric_pandas.py\n"
+"X-Poedit-SearchPath-45: model/pandas/describe_path_pandas.py\n"
+"X-Poedit-SearchPath-46: model/pandas/describe_supported_pandas.py\n"
+"X-Poedit-SearchPath-47: model/pandas/describe_text_pandas.py\n"
+"X-Poedit-SearchPath-48: model/pandas/describe_timeseries_pandas.py\n"
+"X-Poedit-SearchPath-49: model/pandas/describe_url_pandas.py\n"
+"X-Poedit-SearchPath-50: model/pandas/discretize_pandas.py\n"
+"X-Poedit-SearchPath-51: model/pandas/duplicates_pandas.py\n"
+"X-Poedit-SearchPath-52: model/pandas/imbalance_pandas.py\n"
+"X-Poedit-SearchPath-53: model/pandas/missing_pandas.py\n"
+"X-Poedit-SearchPath-54: model/pandas/sample_pandas.py\n"
+"X-Poedit-SearchPath-55: model/pandas/summary_pandas.py\n"
+"X-Poedit-SearchPath-56: model/pandas/table_pandas.py\n"
+"X-Poedit-SearchPath-57: model/pandas/timeseries_index_pandas.py\n"
+"X-Poedit-SearchPath-58: model/pandas/utils_pandas.py\n"
+
+#: model/missing.py:38
+msgid "Count"
+msgstr "計數"
+
+#: model/missing.py:39
+msgid "A simple visualization of nullity by column."
+msgstr "一個簡單的列空值視覺化."
+
+#: model/missing.py:44
+msgid "Matrix"
+msgstr "矩陣"
+
+#: model/missing.py:45
+msgid ""
+"Nullity matrix is a data-dense display which lets you quickly visually pick "
+"out patterns in data completion."
+msgstr ""
+"空值矩陣是一種數據密集的顯示方式，讓您可以快速視覺化地挑選出數據完成的模式."
+
+#: model/missing.py:50 report/structure/correlations.py:93
+msgid "Heatmap"
+msgstr "熱圖"
+
+#: model/missing.py:51
+msgid ""
+"The correlation heatmap measures nullity correlation: how strongly the "
+"presence or absence of one variable affects the presence of another."
+msgstr ""
+"相關性熱圖測量空值相關性：一個變量的存在或不存在如何強烈影響另一個變量的存"
+"在."
+
+#: report/structure/correlations.py:99
+msgid "Table"
+msgstr "表格"
+
+#: report/structure/correlations.py:116
+msgid "Correlations"
+msgstr "相關性"
+
+#: report/structure/overview.py:28
+msgid "Number of variables"
+msgstr "變數數量"
+
+#: report/structure/overview.py:32
+msgid "Number of observations"
+msgstr "觀察次數"
+
+#: report/structure/overview.py:36
+msgid "Missing cells"
+msgstr "缺失細胞"
+
+#: report/structure/overview.py:40
+msgid "Missing cells (%)"
+msgstr "缺失細胞（%）"
+
+#: report/structure/overview.py:48 report/structure/report.py:439
+msgid "Duplicate rows"
+msgstr "重複行"
+
+#: report/structure/overview.py:52
+msgid "Duplicate rows (%)"
+msgstr "重複行 (%)"
+
+#: report/structure/overview.py:61
+msgid "Total size in memory"
+msgstr "記憶體總大小"
+
+#: report/structure/overview.py:65
+msgid "Average record size in memory"
+msgstr "記憶體中的平均記錄大小"
+
+#: report/structure/overview.py:72
+msgid "Dataset statistics"
+msgstr "資料集統計"
+
+#: report/structure/overview.py:83
+msgid "Variable types"
+msgstr "變數類型"
+
+#: report/structure/overview.py:90 report/structure/report.py:372
+msgid "Overview"
+msgstr "概述"
+
+#: report/structure/overview.py:106
+msgid "URL"
+msgstr "網址"
+
+#: report/structure/overview.py:115 report/structure/overview.py:122
+msgid "Copyright"
+msgstr "版權"
+
+#: report/structure/overview.py:133 report/structure/overview.py:138
+msgid "Dataset"
+msgstr "數據集"
+
+#: report/structure/overview.py:171
+msgid "Analysis started"
+msgstr "分析開始"
+
+#: report/structure/overview.py:172
+msgid "Analysis finished"
+msgstr "分析完成"
+
+#: report/structure/overview.py:173
+msgid "Duration"
+msgstr "期間"
+
+#: report/structure/overview.py:174
+msgid "Software version"
+msgstr "軟體版本"
+
+#: report/structure/overview.py:175
+msgid "Download configuration"
+msgstr "下載配置"
+
+#: report/structure/overview.py:177 report/structure/overview.py:184
+msgid "Reproduction"
+msgstr "再生產"
+
+#: report/structure/overview.py:207
+msgid "Variable descriptions"
+msgstr "變數描述"
+
+#: report/structure/overview.py:215 report/structure/report.py:380
+msgid "Variables"
+msgstr "變數"
+
+#: report/structure/overview.py:261 report/structure/overview.py:270
+msgid "Alerts ({})"
+msgstr "警報 ({})"
+
+#: report/structure/overview.py:287
+msgid "Number of series"
+msgstr "系列數"
+
+#: report/structure/overview.py:291
+msgid "Time series length"
+msgstr "時間序列長度"
+
+#: report/structure/overview.py:295
+msgid "Starting point"
+msgstr "初始點"
+
+#: report/structure/overview.py:299
+msgid "Ending point"
+msgstr "終點"
+
+#: report/structure/overview.py:303
+msgid "Period"
+msgstr "時期"
+
+#: report/structure/overview.py:308
+msgid "Timeseries statistics"
+msgstr "時間序列統計"
+
+#: report/structure/overview.py:316
+msgid "Original"
+msgstr "原來的"
+
+#: report/structure/overview.py:323
+msgid "Scaled"
+msgstr "縮放"
+
+#: report/structure/overview.py:337
+msgid "Time Series"
+msgstr "時間序列"
+
+#: report/structure/report.py:172
+msgid "More details"
+msgstr "更多細節"
+
+#: report/structure/report.py:219
+msgid "Most frequently occurring"
+msgstr "最常出現的"
+
+#: report/structure/report.py:401
+msgid "Interactions"
+msgstr "互動"
+
+#: report/structure/report.py:416
+msgid "Missing values"
+msgstr "缺失細胞"
+
+#: report/structure/report.py:427
+msgid "Sample"
+msgstr "樣本"

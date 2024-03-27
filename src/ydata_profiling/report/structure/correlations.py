@@ -90,13 +90,13 @@ def get_correlation_items(
                 image_format=image_format,
                 alt=name,
                 anchor_id=f"{key}_diagram",
-                name="Heatmap" if config.correlation_table else name,
+                name=_("Heatmap") if config.correlation_table else name,
                 classes="correlation-diagram",
             )
 
             if config.correlation_table:
                 table = CorrelationTable(
-                    name="Table", correlation_matrix=item, anchor_id=f"{key}_table"
+                    name=_("Table"), correlation_matrix=item, anchor_id=f"{key}_table"
                 )
 
                 diagram_table_tabs = Container(
@@ -113,7 +113,7 @@ def get_correlation_items(
     corr = Container(
         items,
         sequence_type="tabs",
-        name="Correlations",
+        name=_("Correlations"),
         anchor_id="correlations_tab",
     )
 

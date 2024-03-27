@@ -35,20 +35,20 @@ def get_missing_active(config: Settings, table_stats: dict) -> Dict[str, Any]:
     missing_map = {
         "bar": {
             "min_missing": 0,
-            "name": "Count",
-            "caption": "A simple visualization of nullity by column.",
+            "name": _("Count"),
+            "caption": _("A simple visualization of nullity by column."),
             "function": missing_bar,
         },
         "matrix": {
             "min_missing": 0,
-            "name": "Matrix",
-            "caption": "Nullity matrix is a data-dense display which lets you quickly visually pick out patterns in data completion.",
+            "name": _("Matrix"),
+            "caption": _("Nullity matrix is a data-dense display which lets you quickly visually pick out patterns in data completion."),
             "function": missing_matrix,
         },
         "heatmap": {
             "min_missing": 2,
-            "name": "Heatmap",
-            "caption": "The correlation heatmap measures nullity correlation: how strongly the presence or absence of one variable affects the presence of another.",
+            "name": _("Heatmap"),
+            "caption": _("The correlation heatmap measures nullity correlation: how strongly the presence or absence of one variable affects the presence of another."),
             "function": missing_heatmap,
         },
     }

@@ -169,7 +169,7 @@ def render_variables_section(
 
         bottom = None
         if "bottom" in template_variables and template_variables["bottom"] is not None:
-            btn = ToggleButton("More details", anchor_id=template_variables["varid"])
+            btn = ToggleButton(_("More details"), anchor_id=template_variables["varid"])
             bottom = Collapse(btn, template_variables["bottom"])
 
         var = Variable(
@@ -216,7 +216,7 @@ def get_duplicates_items(
             items.append(
                 Duplicate(
                     duplicate=duplicates,
-                    name="Most frequently occurring",
+                    name=_("Most frequently occurring"),
                     anchor_id="duplicates",
                 )
             )
@@ -369,7 +369,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
             Container(
                 get_dataset_items(config, summary, alerts),
                 sequence_type="tabs",
-                name="Overview",
+                name=_("Overview"),
                 anchor_id="overview",
             ),
         ]
@@ -377,7 +377,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
         if len(summary.variables) > 0:
             section_items.append(
                 Dropdown(
-                    name="Variables",
+                    name=_("Variables"),
                     anchor_id="variables-dropdown",
                     id="variables-dropdown",
                     is_row=True,
@@ -398,7 +398,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
                 Container(
                     scatter_items,
                     sequence_type="tabs" if len(scatter_items) <= 10 else "select",
-                    name="Interactions",
+                    name=_("Interactions"),
                     anchor_id="interactions",
                 ),
             )
@@ -413,7 +413,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
                 Container(
                     missing_items,
                     sequence_type="tabs",
-                    name="Missing values",
+                    name=_("Missing values"),
                     anchor_id="missing",
                 )
             )
@@ -424,7 +424,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
                 Container(
                     items=sample_items,
                     sequence_type="tabs",
-                    name="Sample",
+                    name=_("Sample"),
                     anchor_id="sample",
                 )
             )
@@ -436,7 +436,7 @@ def get_report_structure(config: Settings, summary: BaseDescription) -> Root:
                     items=duplicate_items,
                     sequence_type="batch_grid",
                     batch_size=len(duplicate_items),
-                    name="Duplicate rows",
+                    name=_("Duplicate rows"),
                     anchor_id="duplicate",
                 )
             )
