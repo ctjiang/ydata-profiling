@@ -21,17 +21,17 @@ def render_generic(config: Settings, summary: dict) -> dict:
     table = Table(
         [
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },

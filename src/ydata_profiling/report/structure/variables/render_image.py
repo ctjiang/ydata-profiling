@@ -41,14 +41,14 @@ def render_image(config: Settings, summary: dict) -> dict:
                 Table(
                     [
                         {
-                            "name": "Min width",
+                            "name": _("Min width"),
                             "value": fmt_numeric(
                                 summary["min_width"], precision=config.report.precision
                             ),
                             "alert": False,
                         },
                         {
-                            "name": "Median width",
+                            "name": _("Median width"),
                             "value": fmt_numeric(
                                 summary["median_width"],
                                 precision=config.report.precision,
@@ -56,7 +56,7 @@ def render_image(config: Settings, summary: dict) -> dict:
                             "alert": False,
                         },
                         {
-                            "name": "Max width",
+                            "name": _("Max width"),
                             "value": fmt_numeric(
                                 summary["max_width"], precision=config.report.precision
                             ),
@@ -68,14 +68,14 @@ def render_image(config: Settings, summary: dict) -> dict:
                 Table(
                     [
                         {
-                            "name": "Min height",
+                            "name": _("Min height"),
                             "value": fmt_numeric(
                                 summary["min_height"], precision=config.report.precision
                             ),
                             "alert": False,
                         },
                         {
-                            "name": "Median height",
+                            "name": _("Median height"),
                             "value": fmt_numeric(
                                 summary["median_height"],
                                 precision=config.report.precision,
@@ -83,7 +83,7 @@ def render_image(config: Settings, summary: dict) -> dict:
                             "alert": False,
                         },
                         {
-                            "name": "Max height",
+                            "name": _("Max height"),
                             "value": fmt_numeric(
                                 summary["max_height"], precision=config.report.precision
                             ),
@@ -95,14 +95,14 @@ def render_image(config: Settings, summary: dict) -> dict:
                 Table(
                     [
                         {
-                            "name": "Min area",
+                            "name": _("Min area"),
                             "value": fmt_numeric(
                                 summary["min_area"], precision=config.report.precision
                             ),
                             "alert": False,
                         },
                         {
-                            "name": "Median area",
+                            "name": _("Median area"),
                             "value": fmt_numeric(
                                 summary["median_area"],
                                 precision=config.report.precision,
@@ -110,7 +110,7 @@ def render_image(config: Settings, summary: dict) -> dict:
                             "alert": False,
                         },
                         {
-                            "name": "Max area",
+                            "name": _("Max area"),
                             "value": fmt_numeric(
                                 summary["max_area"], precision=config.report.precision
                             ),
@@ -121,15 +121,15 @@ def render_image(config: Settings, summary: dict) -> dict:
                 ),
             ],
             anchor_id=f"{varid}tbl",
-            name="Overview",
+            name=_("Overview"),
             sequence_type="grid",
         ),
         Image(
             scatter_series(config, summary["image_dimensions"]),
             image_format=config.plot.image_format,
             alt="Scatter plot of image sizes",
-            caption="Scatter plot of image sizes",
-            name="Scatter plot",
+            caption=_("Scatter plot of image sizes"),
+            name=_("Scatter plot"),
             anchor_id=f"{varid}image_dimensions_scatter",
         ),
         FrequencyTable(
@@ -138,7 +138,7 @@ def render_image(config: Settings, summary: dict) -> dict:
                 n=summary["n"],
                 max_number_to_print=n_freq_table_max,
             ),
-            name="Common values",
+            name=_("Common values"),
             anchor_id=f"{varid}image_dimensions_frequency",
             redact=False,
         ),
@@ -147,7 +147,7 @@ def render_image(config: Settings, summary: dict) -> dict:
     image_shape = Container(
         image_shape_items,
         sequence_type="named_list",
-        name="Dimensions",
+        name=_("Dimensions"),
         anchor_id=f"{varid}image_dimensions",
     )
 
@@ -159,7 +159,7 @@ def render_image(config: Settings, summary: dict) -> dict:
                     n=summary["n"],
                     max_number_to_print=n_freq_table_max,
                 ),
-                name="Exif keys",
+                name=_("Exif keys"),
                 anchor_id=f"{varid}exif_keys",
                 redact=redact,
             )
@@ -185,7 +185,7 @@ def render_image(config: Settings, summary: dict) -> dict:
             Container(
                 items,
                 anchor_id=f"{varid}exif_data",
-                name="Exif data",
+                name=_("Exif data"),
                 sequence_type="named_list",
             )
         )
@@ -194,7 +194,7 @@ def render_image(config: Settings, summary: dict) -> dict:
 
     image_tab = Container(
         image_items,
-        name="Image",
+        name=_("Image"),
         sequence_type="tabs",
         anchor_id=f"{varid}image",
     )

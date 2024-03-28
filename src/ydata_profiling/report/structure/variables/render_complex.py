@@ -32,18 +32,18 @@ def render_complex(config: Settings, summary: dict) -> dict:
 
     table1 = Table(
         [
-            {"name": "Distinct", "value": fmt(summary["n_distinct"])},
+            {"name": _("Distinct"), "value": fmt(summary["n_distinct"])},
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
             },
-            {"name": "Missing", "value": fmt(summary["n_missing"])},
+            {"name": _("Missing"), "value": fmt(summary["n_missing"])},
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
             },
         ],
@@ -53,26 +53,26 @@ def render_complex(config: Settings, summary: dict) -> dict:
     table2 = Table(
         [
             {
-                "name": "Mean",
+                "name": _("Mean"),
                 "value": fmt_numeric(
                     summary["mean"], precision=config.report.precision
                 ),
             },
             {
-                "name": "Minimum",
+                "name": _("Minimum"),
                 "value": fmt_numeric(summary["min"], precision=config.report.precision),
             },
             {
-                "name": "Maximum",
+                "name": _("Maximum"),
                 "value": fmt_numeric(summary["max"], precision=config.report.precision),
             },
             {
-                "name": "Zeros",
+                "name": _("Zeros"),
                 "value": fmt_numeric(
                     summary["n_zeros"], precision=config.report.precision
                 ),
             },
-            {"name": "Zeros (%)", "value": fmt_percent(summary["p_zeros"])},
+            {"name": _("Zeros (%)"), "value": fmt_percent(summary["p_zeros"])},
         ],
         style=config.html.style,
     )
@@ -89,8 +89,8 @@ def render_complex(config: Settings, summary: dict) -> dict:
             scatter_complex(config, summary["scatter_data"]),
             image_format=image_format,
             alt="Scatterplot",
-            caption="Scatterplot in the complex plane",
-            name="Scatter",
+            caption=_("Scatterplot in the complex plane"),
+            name=_("Scatter"),
             anchor_id=f"{varid}scatter",
         )
     ]

@@ -30,27 +30,27 @@ def render_date(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     table1 = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": False,
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": False,
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": False,
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": False,
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },
@@ -60,8 +60,8 @@ def render_date(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
 
     table2 = Table(
         [
-            {"name": "Minimum", "value": fmt(summary["min"]), "alert": False},
-            {"name": "Maximum", "value": fmt(summary["max"]), "alert": False},
+            {"name": _("Minimum"), "value": fmt(summary["min"]), "alert": False},
+            {"name": _("Maximum"), "value": fmt(summary["max"]), "alert": False},
         ],
         style=config.html.style,
     )
@@ -110,7 +110,7 @@ def render_date(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
                 image_format=image_format,
                 alt="Histogram",
                 caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
-                name="Histogram",
+                name=_("Histogram"),
                 anchor_id=f"{varid}histogram",
             )
         ],

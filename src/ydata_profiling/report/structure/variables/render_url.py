@@ -30,37 +30,37 @@ def render_url(config: Settings, summary: dict) -> dict:
 
     full_frequency_table = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Full",
+        name=_("Full"),
         anchor_id=f"{varid}full_frequency",
         redact=redact,
     )
     scheme_frequency_table = FrequencyTable(
         template_variables["freqtable_scheme"],
-        name="Scheme",
+        name=_("Scheme"),
         anchor_id=f"{varid}scheme_frequency",
         redact=redact,
     )
     netloc_frequency_table = FrequencyTable(
         template_variables["freqtable_netloc"],
-        name="Netloc",
+        name=_("Netloc"),
         anchor_id=f"{varid}netloc_frequency",
         redact=redact,
     )
     path_frequency_table = FrequencyTable(
         template_variables["freqtable_path"],
-        name="Path",
+        name=_("Path"),
         anchor_id=f"{varid}path_frequency",
         redact=redact,
     )
     query_frequency_table = FrequencyTable(
         template_variables["freqtable_query"],
-        name="Query",
+        name=_("Query"),
         anchor_id=f"{varid}query_frequency",
         redact=redact,
     )
     fragment_frequency_table = FrequencyTable(
         template_variables["freqtable_fragment"],
-        name="Fragment",
+        name=_("Fragment"),
         anchor_id=f"{varid}fragment_frequency",
         redact=redact,
     )
@@ -74,7 +74,7 @@ def render_url(config: Settings, summary: dict) -> dict:
         fragment_frequency_table,
     ]
     template_variables["bottom"] = Container(
-        items, sequence_type="tabs", name="url stats", anchor_id=f"{varid}urlstats"
+        items, sequence_type="tabs", name=_("url stats"), anchor_id=f"{varid}urlstats"
     )
 
     # Element composition
@@ -90,27 +90,27 @@ def render_url(config: Settings, summary: dict) -> dict:
     table = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": "n_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": "p_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },

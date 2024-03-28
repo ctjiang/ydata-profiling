@@ -37,27 +37,27 @@ def render_boolean(config: Settings, summary: dict) -> dict:
     table = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": "n_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": "p_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },
@@ -79,7 +79,7 @@ def render_boolean(config: Settings, summary: dict) -> dict:
     items: List[Renderable] = [
         FrequencyTable(
             template_variables["freq_table_rows"],
-            name="Common Values (Table)",
+            name=_("Common Values (Table)"),
             anchor_id=f"{varid}frequency_table",
             redact=False,
         )
@@ -106,7 +106,7 @@ def render_boolean(config: Settings, summary: dict) -> dict:
                         for idx, s in enumerate(summary["value_counts_without_nan"])
                     ],
                     anchor_id=f"{varid}cat_frequency_plot",
-                    name="Common Values (Plot)",
+                    name=_("Common Values (Plot)"),
                     sequence_type="batch_grid",
                     batch_size=len(config.html.style._labels),
                 )
@@ -120,7 +120,7 @@ def render_boolean(config: Settings, summary: dict) -> dict:
                     ),
                     image_format=image_format,
                     alt="Common Values (Plot)",
-                    name="Common Values (Plot)",
+                    name=_("Common Values (Plot)"),
                     anchor_id=f"{varid}cat_frequency_plot",
                 )
             )

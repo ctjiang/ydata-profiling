@@ -27,6 +27,7 @@ class Dropdown(ItemRenderer):
                 "anchor_id": anchor_id,
                 "classes": " ".join(classes),
                 "is_row": is_row,
+                "dropdown_prompt": _("Select Columns")
             },
             **kwargs
         )

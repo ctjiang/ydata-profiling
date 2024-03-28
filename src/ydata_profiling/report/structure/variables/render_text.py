@@ -47,27 +47,27 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     table = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": "n_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": "p_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },
@@ -104,7 +104,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     overview_items.append(unique_stats)
 
     if not config.vars.text.redact:
-        rows = ("1st row", "2nd row", "3rd row", "4th row", "5th row")
+        rows = (_("1st row"), _("2nd row"), _("3rd row"), _("4th row"), _("5th row"))
 
         if isinstance(summary["first_rows"], list):
             sample = Table(
@@ -116,7 +116,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
                     }
                     for name, *value in zip(rows, *summary["first_rows"])
                 ],
-                name="Sample",
+                name=_("Sample"),
                 style=config.html.style,
             )
         else:
@@ -129,13 +129,13 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
                     }
                     for name, value in zip(rows, summary["first_rows"])
                 ],
-                name="Sample",
+                name=_("Sample"),
                 style=config.html.style,
             )
         overview_items.append(sample)
     overview = Container(
         overview_items,
-        name="Overview",
+        name=_("Overview"),
         anchor_id=f"{varid}overview",
         sequence_type="batch_grid",
         batch_size=len(overview_items),
@@ -152,7 +152,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
 
         fqwo = FrequencyTable(
             woc,
-            name="Common words",
+            name=_("Common words"),
             anchor_id=f"{varid}cwo",
             redact=config.vars.text.redact,
         )
@@ -166,7 +166,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
         bottom_items.append(
             Container(
                 [fqwo, image],
-                name="Words",
+                name=_("Words"),
                 anchor_id=f"{varid}word",
                 sequence_type="grid",
             )
@@ -176,7 +176,7 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
         bottom_items.append(
             Container(
                 [unitab],
-                name="Characters",
+                name=_("Characters"),
                 anchor_id=f"{varid}characters",
                 sequence_type="grid",
             )

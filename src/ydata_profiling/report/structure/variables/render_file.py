@@ -27,15 +27,15 @@ def render_file(config: Settings, summary: dict) -> dict:
                 image_format=image_format,
                 alt="Size",
                 caption=f"<strong>Histogram with fixed size bins of file sizes (in bytes)</strong> (bins={len(summary['histogram_file_size'][1]) - 1})",
-                name="File size",
+                name=_("File size"),
                 anchor_id=f"{varid}file_size_histogram",
             )
         )
 
     file_dates = {
-        "file_created_time": "Created",
-        "file_accessed_time": "Accessed",
-        "file_modified_time": "Modified",
+        "file_created_time": _("Created"),
+        "file_accessed_time": _("Accessed"),
+        "file_modified_time": _("Modified"),
     }
 
     for file_date_id, description in file_dates.items():
@@ -55,7 +55,7 @@ def render_file(config: Settings, summary: dict) -> dict:
 
     file_tab = Container(
         file_tabs,
-        name="File",
+        name=_("File"),
         sequence_type="tabs",
         anchor_id=f"{varid}file",
     )

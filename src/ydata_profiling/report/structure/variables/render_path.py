@@ -31,26 +31,26 @@ def render_path(config: Settings, summary: dict) -> dict:
             Table(
                 [
                     {
-                        "name": "Common prefix",
+                        "name": _("Common prefix"),
                         "value": fmt(summary["common_prefix"]),
                         "alert": False,
                     },
                     {
-                        "name": "Unique stems",
+                        "name": _("Unique stems"),
                         "value": fmt_numeric(
                             summary["n_stem_unique"], precision=config.report.precision
                         ),
                         "alert": False,
                     },
                     {
-                        "name": "Unique names",
+                        "name": _("Unique names"),
                         "value": fmt_numeric(
                             summary["n_name_unique"], precision=config.report.precision
                         ),
                         "alert": False,
                     },
                     {
-                        "name": "Unique extensions",
+                        "name": _("Unique extensions"),
                         "value": fmt_numeric(
                             summary["n_suffix_unique"],
                             precision=config.report.precision,
@@ -58,7 +58,7 @@ def render_path(config: Settings, summary: dict) -> dict:
                         "alert": False,
                     },
                     {
-                        "name": "Unique directories",
+                        "name": _("Unique directories"),
                         "value": fmt_numeric(
                             summary["n_parent_unique"],
                             precision=config.report.precision,
@@ -66,7 +66,7 @@ def render_path(config: Settings, summary: dict) -> dict:
                         "alert": False,
                     },
                     {
-                        "name": "Unique anchors",
+                        "name": _("Unique anchors"),
                         "value": fmt_numeric(
                             summary["n_anchor_unique"],
                             precision=config.report.precision,
@@ -78,7 +78,7 @@ def render_path(config: Settings, summary: dict) -> dict:
             )
         ],
         anchor_id=f"{varid}tbl",
-        name="Overview",
+        name=_("Overview"),
         sequence_type="list",
     )
 

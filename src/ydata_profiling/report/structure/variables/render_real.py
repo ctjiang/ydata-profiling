@@ -37,37 +37,37 @@ def render_real(config: Settings, summary: dict) -> dict:
     table1 = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": "n_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": "p_distinct" in summary["alert_fields"],
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": "n_missing" in summary["alert_fields"],
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": "p_missing" in summary["alert_fields"],
             },
             {
-                "name": "Infinite",
+                "name": _("Infinite"),
                 "value": fmt(summary["n_infinite"]),
                 "alert": "n_infinite" in summary["alert_fields"],
             },
             {
-                "name": "Infinite (%)",
+                "name": _("Infinite (%)"),
                 "value": fmt_percent(summary["p_infinite"]),
                 "alert": "p_infinite" in summary["alert_fields"],
             },
             {
-                "name": "Mean",
+                "name": _("Mean"),
                 "value": fmt_numeric(
                     summary["mean"], precision=config.report.precision
                 ),
@@ -80,37 +80,37 @@ def render_real(config: Settings, summary: dict) -> dict:
     table2 = Table(
         [
             {
-                "name": "Minimum",
+                "name": _("Minimum"),
                 "value": fmt_numeric(summary["min"], precision=config.report.precision),
                 "alert": False,
             },
             {
-                "name": "Maximum",
+                "name": _("Maximum"),
                 "value": fmt_numeric(summary["max"], precision=config.report.precision),
                 "alert": False,
             },
             {
-                "name": "Zeros",
+                "name": _("Zeros"),
                 "value": fmt(summary["n_zeros"]),
                 "alert": "n_zeros" in summary["alert_fields"],
             },
             {
-                "name": "Zeros (%)",
+                "name": _("Zeros (%)"),
                 "value": fmt_percent(summary["p_zeros"]),
                 "alert": "p_zeros" in summary["alert_fields"],
             },
             {
-                "name": "Negative",
+                "name": _("Negative"),
                 "value": fmt(summary["n_negative"]),
                 "alert": False,
             },
             {
-                "name": "Negative (%)",
+                "name": _("Negative (%)"),
                 "value": fmt_percent(summary["p_negative"]),
                 "alert": False,
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },
@@ -142,104 +142,104 @@ def render_real(config: Settings, summary: dict) -> dict:
     quantile_statistics = Table(
         [
             {
-                "name": "Minimum",
+                "name": _("Minimum"),
                 "value": fmt_numeric(summary["min"], precision=config.report.precision),
             },
             {
-                "name": "5-th percentile",
+                "name": _("5-th percentile"),
                 "value": fmt_numeric(summary["5%"], precision=config.report.precision),
             },
             {
-                "name": "Q1",
+                "name": _("Q1"),
                 "value": fmt_numeric(summary["25%"], precision=config.report.precision),
             },
             {
-                "name": "median",
+                "name": _("median"),
                 "value": fmt_numeric(summary["50%"], precision=config.report.precision),
             },
             {
-                "name": "Q3",
+                "name": _("Q3"),
                 "value": fmt_numeric(summary["75%"], precision=config.report.precision),
             },
             {
-                "name": "95-th percentile",
+                "name": _("95-th percentile"),
                 "value": fmt_numeric(summary["95%"], precision=config.report.precision),
             },
             {
-                "name": "Maximum",
+                "name": _("Maximum"),
                 "value": fmt_numeric(summary["max"], precision=config.report.precision),
             },
             {
-                "name": "Range",
+                "name": _("Range"),
                 "value": fmt_numeric(
                     summary["range"], precision=config.report.precision
                 ),
             },
             {
-                "name": "Interquartile range (IQR)",
+                "name": _("Interquartile range (IQR)"),
                 "value": fmt_numeric(summary["iqr"], precision=config.report.precision),
             },
         ],
-        name="Quantile statistics",
+        name=_("Quantile statistics"),
         style=config.html.style,
     )
 
     descriptive_statistics = Table(
         [
             {
-                "name": "Standard deviation",
+                "name": _("Standard deviation"),
                 "value": fmt_numeric(summary["std"], precision=config.report.precision),
             },
             {
-                "name": "Coefficient of variation (CV)",
+                "name": _("Coefficient of variation (CV)"),
                 "value": fmt_numeric(summary["cv"], precision=config.report.precision),
             },
             {
-                "name": "Kurtosis",
+                "name": _("Kurtosis"),
                 "value": fmt_numeric(
                     summary["kurtosis"], precision=config.report.precision
                 ),
             },
             {
-                "name": "Mean",
+                "name": _("Mean"),
                 "value": fmt_numeric(
                     summary["mean"], precision=config.report.precision
                 ),
             },
             {
-                "name": "Median Absolute Deviation (MAD)",
+                "name": _("Median Absolute Deviation (MAD)"),
                 "value": fmt_numeric(summary["mad"], precision=config.report.precision),
             },
             {
-                "name": "Skewness",
+                "name": _("Skewness"),
                 "value": fmt_numeric(
                     summary["skewness"], precision=config.report.precision
                 ),
                 "class": "alert" if "skewness" in summary["alert_fields"] else "",
             },
             {
-                "name": "Sum",
+                "name": _("Sum"),
                 "value": fmt_numeric(summary["sum"], precision=config.report.precision),
             },
             {
-                "name": "Variance",
+                "name": _("Variance"),
                 "value": fmt_numeric(
                     summary["variance"], precision=config.report.precision
                 ),
             },
             {
-                "name": "Monotonicity",
+                "name": _("Monotonicity"),
                 "value": fmt_monotonic(summary["monotonic"]),
             },
         ],
-        name="Descriptive statistics",
+        name=_("Descriptive statistics"),
         style=config.html.style,
     )
 
     statistics = Container(
         [quantile_statistics, descriptive_statistics],
         anchor_id=f"{varid}statistics",
-        name="Statistics",
+        name=_("Statistics"),
         sequence_type="grid",
     )
 
@@ -260,13 +260,13 @@ def render_real(config: Settings, summary: dict) -> dict:
         image_format=image_format,
         alt="Histogram",
         caption=hist_caption,
-        name="Histogram",
+        name=_("Histogram"),
         anchor_id=f"{varid}histogram",
     )
 
     fq = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Common values",
+        name=_("Common values"),
         anchor_id=f"{varid}common_values",
         redact=False,
     )
@@ -275,19 +275,21 @@ def render_real(config: Settings, summary: dict) -> dict:
         [
             FrequencyTable(
                 template_variables["firstn_expanded"],
-                name=f"Minimum {config.n_extreme_obs} values",
+                #name=f"Minimum {config.n_extreme_obs} values",
+                name=_("Minimum {} values").format(config.n_extreme_obs),
                 anchor_id=f"{varid}firstn",
                 redact=False,
             ),
             FrequencyTable(
                 template_variables["lastn_expanded"],
-                name=f"Maximum {config.n_extreme_obs} values",
+                #name=f"Maximum {config.n_extreme_obs} values",
+                name=_("Maximum {} values").format(config.n_extreme_obs),
                 anchor_id=f"{varid}lastn",
                 redact=False,
             ),
         ],
         sequence_type="tabs",
-        name="Extreme values",
+        name=_("Extreme values"),
         anchor_id=f"{varid}extreme_values",
     )
 

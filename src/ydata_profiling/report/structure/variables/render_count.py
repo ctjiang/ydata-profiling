@@ -33,22 +33,22 @@ def render_count(config: Settings, summary: dict) -> dict:
     table1 = Table(
         [
             {
-                "name": "Distinct",
+                "name": _("Distinct"),
                 "value": fmt(summary["n_distinct"]),
                 "alert": False,
             },
             {
-                "name": "Distinct (%)",
+                "name": _("Distinct (%)"),
                 "value": fmt_percent(summary["p_distinct"]),
                 "alert": False,
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": fmt(summary["n_missing"]),
                 "alert": False,
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": fmt_percent(summary["p_missing"]),
                 "alert": False,
             },
@@ -59,34 +59,34 @@ def render_count(config: Settings, summary: dict) -> dict:
     table2 = Table(
         [
             {
-                "name": "Mean",
+                "name": _("Mean"),
                 "value": fmt_numeric(
                     summary["mean"], precision=config.report.precision
                 ),
                 "alert": False,
             },
             {
-                "name": "Minimum",
+                "name": _("Minimum"),
                 "value": fmt_numeric(summary["min"], precision=config.report.precision),
                 "alert": False,
             },
             {
-                "name": "Maximum",
+                "name": _("Maximum"),
                 "value": fmt_numeric(summary["max"], precision=config.report.precision),
                 "alert": False,
             },
             {
-                "name": "Zeros",
+                "name": _("Zeros"),
                 "value": fmt(summary["n_zeros"]),
                 "alert": False,
             },
             {
-                "name": "Zeros (%)",
+                "name": _("Zeros (%)"),
                 "value": fmt_percent(summary["p_zeros"]),
                 "alert": False,
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": fmt_bytesize(summary["memory_size"]),
                 "alert": False,
             },
@@ -110,14 +110,14 @@ def render_count(config: Settings, summary: dict) -> dict:
             image_format=image_format,
             alt="Histogram",
             caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
-            name="Histogram",
+            name=_("Histogram"),
             anchor_id="histogram",
         )
     ]
 
     fq = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Common values",
+        name=_("Common values"),
         anchor_id="common_values",
         redact=False,
     )
@@ -138,14 +138,14 @@ def render_count(config: Settings, summary: dict) -> dict:
             ),
         ],
         sequence_type="tabs",
-        name="Extreme values",
+        name=_("Extreme values"),
         anchor_id="extreme_values",
     )
 
     template_variables["bottom"] = Container(
         [
             Container(
-                seqs, sequence_type="tabs", name="Histogram(s)", anchor_id="histograms"
+                seqs, sequence_type="tabs", name=_("Histogram(s)"), anchor_id="histograms"
             ),
             fq,
             evs,

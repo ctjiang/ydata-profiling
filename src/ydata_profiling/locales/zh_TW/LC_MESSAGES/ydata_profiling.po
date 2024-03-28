@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-03-27 17:39+0800\n"
-"PO-Revision-Date: 2024-03-27 17:47+0800\n"
+"POT-Creation-Date: 2024-03-28 17:38+0800\n"
+"PO-Revision-Date: 2024-03-28 17:39+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -70,14 +70,17 @@ msgstr ""
 "X-Poedit-SearchPath-56: model/pandas/table_pandas.py\n"
 "X-Poedit-SearchPath-57: model/pandas/timeseries_index_pandas.py\n"
 "X-Poedit-SearchPath-58: model/pandas/utils_pandas.py\n"
+"X-Poedit-SearchPath-59: report/presentation/frequency_table_utils.py\n"
+"X-Poedit-SearchPath-60: report/presentation/core/dropdown.py\n"
+"X-Poedit-SearchPath-61: report/presentation/core/frequency_table.py\n"
 
-#: model/missing.py:38
+#: model/missing.py:38 report/presentation/core/frequency_table.py:14
 msgid "Count"
 msgstr "計數"
 
 #: model/missing.py:39
 msgid "A simple visualization of nullity by column."
-msgstr "一個簡單的列空值視覺化."
+msgstr "依欄位顯示空值的簡單視覺化."
 
 #: model/missing.py:44
 msgid "Matrix"
@@ -87,8 +90,7 @@ msgstr "矩陣"
 msgid ""
 "Nullity matrix is a data-dense display which lets you quickly visually pick "
 "out patterns in data completion."
-msgstr ""
-"空值矩陣是一種數據密集的顯示方式，讓您可以快速視覺化地挑選出數據完成的模式."
+msgstr "空值矩陣是一種高密度資料呈現方式，可讓您快速直觀地找出資料填補模式."
 
 #: model/missing.py:50 report/structure/correlations.py:93
 msgid "Heatmap"
@@ -99,8 +101,38 @@ msgid ""
 "The correlation heatmap measures nullity correlation: how strongly the "
 "presence or absence of one variable affects the presence of another."
 msgstr ""
-"相關性熱圖測量空值相關性：一個變量的存在或不存在如何強烈影響另一個變量的存"
-"在."
+"相關熱圖量測空值相關性：一個變數的資料存在或缺失，會在多大程度上影響另一個變"
+"數的資料存在與否."
+
+#: report/presentation/core/dropdown.py:30
+msgid "Select Columns"
+msgstr "選擇列"
+
+#: report/presentation/core/frequency_table.py:13
+msgid "Value"
+msgstr "值"
+
+#: report/presentation/core/frequency_table.py:15
+msgid "Frequency (%)"
+msgstr "頻率 (%)"
+
+#: report/presentation/frequency_table_utils.py:51
+msgid "Other values ({})"
+msgstr "其它值 ({})"
+
+#: report/presentation/frequency_table_utils.py:62
+#: report/structure/variables/render_boolean.py:50
+#: report/structure/variables/render_categorical.py:368
+#: report/structure/variables/render_complex.py:40
+#: report/structure/variables/render_count.py:46
+#: report/structure/variables/render_date.py:43
+#: report/structure/variables/render_generic.py:24
+#: report/structure/variables/render_real.py:50
+#: report/structure/variables/render_text.py:60
+#: report/structure/variables/render_timeseries.py:113
+#: report/structure/variables/render_url.py:103
+msgid "Missing"
+msgstr "遺失的"
 
 #: report/structure/correlations.py:99
 msgid "Table"
@@ -124,7 +156,7 @@ msgstr "缺失細胞"
 
 #: report/structure/overview.py:40
 msgid "Missing cells (%)"
-msgstr "缺失細胞（%）"
+msgstr "缺失細胞率（%）"
 
 #: report/structure/overview.py:48 report/structure/report.py:439
 msgid "Duplicate rows"
@@ -132,7 +164,7 @@ msgstr "重複行"
 
 #: report/structure/overview.py:52
 msgid "Duplicate rows (%)"
-msgstr "重複行 (%)"
+msgstr "重複行率 (%)"
 
 #: report/structure/overview.py:61
 msgid "Total size in memory"
@@ -151,6 +183,10 @@ msgid "Variable types"
 msgstr "變數類型"
 
 #: report/structure/overview.py:90 report/structure/report.py:372
+#: report/structure/variables/render_categorical.py:508
+#: report/structure/variables/render_image.py:124
+#: report/structure/variables/render_path.py:81
+#: report/structure/variables/render_text.py:138
 msgid "Overview"
 msgstr "概述"
 
@@ -252,8 +288,611 @@ msgstr "互動"
 
 #: report/structure/report.py:416
 msgid "Missing values"
-msgstr "缺失細胞"
+msgstr "缺失值"
 
 #: report/structure/report.py:427
+#: report/structure/variables/render_categorical.py:435
+#: report/structure/variables/render_categorical.py:448
+#: report/structure/variables/render_text.py:119
+#: report/structure/variables/render_text.py:132
 msgid "Sample"
 msgstr "樣本"
+
+#: report/structure/variables/render_boolean.py:40
+#: report/structure/variables/render_categorical.py:358
+#: report/structure/variables/render_complex.py:35
+#: report/structure/variables/render_count.py:36
+#: report/structure/variables/render_date.py:33
+#: report/structure/variables/render_real.py:40
+#: report/structure/variables/render_text.py:50
+#: report/structure/variables/render_timeseries.py:103
+#: report/structure/variables/render_url.py:93
+msgid "Distinct"
+msgstr "不重複"
+
+#: report/structure/variables/render_boolean.py:45
+#: report/structure/variables/render_categorical.py:363
+#: report/structure/variables/render_complex.py:37
+#: report/structure/variables/render_count.py:41
+#: report/structure/variables/render_date.py:38
+#: report/structure/variables/render_real.py:45
+#: report/structure/variables/render_text.py:55
+#: report/structure/variables/render_timeseries.py:108
+#: report/structure/variables/render_url.py:98
+msgid "Distinct (%)"
+msgstr "不重複（%）"
+
+#: report/structure/variables/render_boolean.py:55
+#: report/structure/variables/render_categorical.py:373
+#: report/structure/variables/render_complex.py:42
+#: report/structure/variables/render_count.py:51
+#: report/structure/variables/render_date.py:48
+#: report/structure/variables/render_generic.py:29
+#: report/structure/variables/render_real.py:55
+#: report/structure/variables/render_text.py:65
+#: report/structure/variables/render_timeseries.py:118
+#: report/structure/variables/render_url.py:108
+msgid "Missing (%)"
+msgstr "遺失率（%）"
+
+#: report/structure/variables/render_boolean.py:60
+#: report/structure/variables/render_categorical.py:378
+#: report/structure/variables/render_complex.py:46
+#: report/structure/variables/render_count.py:89
+#: report/structure/variables/render_date.py:53
+#: report/structure/variables/render_generic.py:34
+#: report/structure/variables/render_real.py:113
+#: report/structure/variables/render_text.py:70
+#: report/structure/variables/render_timeseries.py:166
+#: report/structure/variables/render_url.py:113
+msgid "Memory size"
+msgstr "記憶體大小"
+
+#: report/structure/variables/render_boolean.py:82
+msgid "Common Values (Table)"
+msgstr "共同值 (表格)"
+
+#: report/structure/variables/render_boolean.py:109
+#: report/structure/variables/render_boolean.py:123
+#: report/structure/variables/render_categorical.py:484
+#: report/structure/variables/render_categorical.py:500
+msgid "Common Values (Plot)"
+msgstr "共同值 (圖)"
+
+#: report/structure/variables/render_categorical.py:35
+#: report/structure/variables/render_categorical.py:48
+msgid "Unique"
+msgstr "唯一"
+
+#: report/structure/variables/render_categorical.py:43
+msgid "Unique (%)"
+msgstr "唯一率 (%)"
+
+#: report/structure/variables/render_categorical.py:62
+msgid "Max length"
+msgstr "最長長度"
+
+#: report/structure/variables/render_categorical.py:67
+msgid "Median length"
+msgstr "中位長度"
+
+#: report/structure/variables/render_categorical.py:72
+msgid "Mean length"
+msgstr "平均長度"
+
+#: report/structure/variables/render_categorical.py:79
+msgid "Min length"
+msgstr "最小長度"
+
+#: report/structure/variables/render_categorical.py:84
+#: report/structure/variables/render_categorical.py:102
+msgid "Length"
+msgstr "長度"
+
+#: report/structure/variables/render_categorical.py:103
+msgid "Histogram of lengths of the category"
+msgstr "類別長度直方圖"
+
+#: report/structure/variables/render_categorical.py:130
+msgid "Most occurring categories"
+msgstr "最常見的類別"
+
+#: report/structure/variables/render_categorical.py:157
+msgid "Most frequent character per category"
+msgstr "每個類別最常見的字元"
+
+#: report/structure/variables/render_categorical.py:171
+msgid "Most occurring scripts"
+msgstr "最常出現的腳本"
+
+#: report/structure/variables/render_categorical.py:196
+msgid "Most frequent character per script"
+msgstr "每個腳本中最常見的字元"
+
+#: report/structure/variables/render_categorical.py:210
+msgid "Most occurring blocks"
+msgstr "最常出現的區塊"
+
+#: report/structure/variables/render_categorical.py:233
+msgid "Most frequent character per block"
+msgstr "每個區塊最常見的字符"
+
+#: report/structure/variables/render_categorical.py:244
+msgid "Total characters"
+msgstr "總字元數"
+
+#: report/structure/variables/render_categorical.py:249
+msgid "Distinct characters"
+msgstr "不同的字元"
+
+#: report/structure/variables/render_categorical.py:254
+msgid "Distinct categories"
+msgstr "不同的類別"
+
+#: report/structure/variables/render_categorical.py:257
+msgid "Unicode categories (click for more information)"
+msgstr "Unicode 類別（點擊查看更多資訊）"
+
+#: report/structure/variables/render_categorical.py:263
+msgid "Distinct scripts"
+msgstr "不同的腳本清楚的"
+
+#: report/structure/variables/render_categorical.py:266
+msgid "Unicode scripts (click for more information)"
+msgstr "Unicode 腳本（點擊了解更多）"
+
+#: report/structure/variables/render_categorical.py:272
+msgid "Distinct blocks"
+msgstr "不同的區塊清楚的"
+
+#: report/structure/variables/render_categorical.py:275
+msgid "Unicode blocks (click for more information)"
+msgstr "Unicode 區塊（點擊查看更多資訊）"
+
+#: report/structure/variables/render_categorical.py:281
+msgid "Characters and Unicode"
+msgstr "字元和 Unicode"
+
+#: report/structure/variables/render_categorical.py:282
+msgid ""
+"The Unicode Standard assigns character properties to each code point, which "
+"can be used to analyse textual variables. "
+msgstr "Unicode標準會為每個代碼點分配字符屬性，這些屬性可以用於分析文本變量."
+
+#: report/structure/variables/render_categorical.py:295
+msgid "Most occurring characters"
+msgstr "出現次數最多的字符"
+
+#: report/structure/variables/render_categorical.py:300
+#: report/structure/variables/render_categorical.py:554
+#: report/structure/variables/render_text.py:179
+msgid "Characters"
+msgstr "字元"
+
+#: report/structure/variables/render_categorical.py:306
+#: report/structure/variables/render_categorical.py:516
+msgid "Categories"
+msgstr "類別"
+
+#: report/structure/variables/render_categorical.py:312
+msgid "Scripts"
+msgstr "腳本"
+
+#: report/structure/variables/render_categorical.py:318
+msgid "Blocks"
+msgstr "區塊"
+
+#: report/structure/variables/render_categorical.py:326
+msgid "Unicode"
+msgstr "Unicode"
+
+#: report/structure/variables/render_categorical.py:401
+msgid "Common Values"
+msgstr "共用值"
+
+#: report/structure/variables/render_categorical.py:423
+#: report/structure/variables/render_text.py:107
+msgid "1st row"
+msgstr "第一行"
+
+#: report/structure/variables/render_categorical.py:423
+#: report/structure/variables/render_text.py:107
+msgid "2nd row"
+msgstr "第二行"
+
+#: report/structure/variables/render_categorical.py:423
+#: report/structure/variables/render_text.py:107
+msgid "3rd row"
+msgstr "第三行"
+
+#: report/structure/variables/render_categorical.py:423
+#: report/structure/variables/render_text.py:107
+msgid "4th row"
+msgstr "第四行"
+
+#: report/structure/variables/render_categorical.py:423
+#: report/structure/variables/render_text.py:107
+msgid "5th row"
+msgstr "第五行"
+
+#: report/structure/variables/render_categorical.py:535
+#: report/structure/variables/render_text.py:155
+msgid "Common words"
+msgstr "常用詞"
+
+#: report/structure/variables/render_categorical.py:543
+#: report/structure/variables/render_text.py:169
+msgid "Words"
+msgstr "詞"
+
+#: report/structure/variables/render_complex.py:56
+#: report/structure/variables/render_count.py:62
+#: report/structure/variables/render_real.py:70
+#: report/structure/variables/render_real.py:204
+#: report/structure/variables/render_timeseries.py:139
+#: report/structure/variables/render_timeseries.py:246
+msgid "Mean"
+msgstr "平均數"
+
+#: report/structure/variables/render_complex.py:62
+#: report/structure/variables/render_count.py:69
+#: report/structure/variables/render_date.py:63
+#: report/structure/variables/render_real.py:83
+#: report/structure/variables/render_real.py:145
+#: report/structure/variables/render_timeseries.py:146
+#: report/structure/variables/render_timeseries.py:187
+msgid "Minimum"
+msgstr "最小值"
+
+#: report/structure/variables/render_complex.py:66
+#: report/structure/variables/render_count.py:74
+#: report/structure/variables/render_date.py:64
+#: report/structure/variables/render_real.py:88
+#: report/structure/variables/render_real.py:169
+#: report/structure/variables/render_timeseries.py:151
+#: report/structure/variables/render_timeseries.py:211
+msgid "Maximum"
+msgstr "最大值"
+
+#: report/structure/variables/render_complex.py:70
+#: report/structure/variables/render_count.py:79
+#: report/structure/variables/render_real.py:93
+#: report/structure/variables/render_timeseries.py:156
+msgid "Zeros"
+msgstr "零值"
+
+#: report/structure/variables/render_complex.py:75
+#: report/structure/variables/render_count.py:84
+#: report/structure/variables/render_real.py:98
+#: report/structure/variables/render_timeseries.py:161
+msgid "Zeros (%)"
+msgstr "零值率 (%)"
+
+#: report/structure/variables/render_complex.py:92
+msgid "Scatterplot in the complex plane"
+msgstr "複平面上的散佈圖"
+
+#: report/structure/variables/render_complex.py:93
+msgid "Scatter"
+msgstr "分散"
+
+#: report/structure/variables/render_count.py:113
+#: report/structure/variables/render_date.py:113
+#: report/structure/variables/render_real.py:263
+#: report/structure/variables/render_timeseries.py:308
+msgid "Histogram"
+msgstr "直方圖"
+
+#: report/structure/variables/render_count.py:120
+#: report/structure/variables/render_image.py:141
+#: report/structure/variables/render_real.py:269
+#: report/structure/variables/render_timeseries.py:314
+msgid "Common values"
+msgstr "共同值"
+
+#: report/structure/variables/render_count.py:141
+#: report/structure/variables/render_real.py:292
+#: report/structure/variables/render_timeseries.py:337
+msgid "Extreme values"
+msgstr "極端值"
+
+#: report/structure/variables/render_count.py:148
+msgid "Histogram(s)"
+msgstr "直方圖"
+
+#: report/structure/variables/render_file.py:30
+msgid "File size"
+msgstr "檔案大小"
+
+#: report/structure/variables/render_file.py:36
+msgid "Created"
+msgstr "已創建"
+
+#: report/structure/variables/render_file.py:37
+msgid "Accessed"
+msgstr "已存取"
+
+#: report/structure/variables/render_file.py:38
+msgid "Modified"
+msgstr "已修改"
+
+#: report/structure/variables/render_file.py:58
+msgid "File"
+msgstr "檔案"
+
+#: report/structure/variables/render_image.py:44
+msgid "Min width"
+msgstr "最小寬度"
+
+#: report/structure/variables/render_image.py:51
+msgid "Median width"
+msgstr "中位寬度"
+
+#: report/structure/variables/render_image.py:59
+msgid "Max width"
+msgstr "最大寬度"
+
+#: report/structure/variables/render_image.py:71
+msgid "Min height"
+msgstr "最小高度"
+
+#: report/structure/variables/render_image.py:78
+msgid "Median height"
+msgstr "中位高度"
+
+#: report/structure/variables/render_image.py:86
+msgid "Max height"
+msgstr "最大高度"
+
+#: report/structure/variables/render_image.py:98
+msgid "Min area"
+msgstr "最小面積"
+
+#: report/structure/variables/render_image.py:105
+msgid "Median area"
+msgstr "中位面積"
+
+#: report/structure/variables/render_image.py:113
+msgid "Max area"
+msgstr "最大面積"
+
+#: report/structure/variables/render_image.py:131
+msgid "Scatter plot of image sizes"
+msgstr "影像大小的散點圖"
+
+#: report/structure/variables/render_image.py:132
+msgid "Scatter plot"
+msgstr "散點圖"
+
+#: report/structure/variables/render_image.py:150
+msgid "Dimensions"
+msgstr "維數"
+
+#: report/structure/variables/render_image.py:162
+msgid "Exif keys"
+msgstr "Exif 鍵"
+
+#: report/structure/variables/render_image.py:188
+msgid "Exif data"
+msgstr "Exif 數據"
+
+#: report/structure/variables/render_image.py:197
+msgid "Image"
+msgstr "影像"
+
+#: report/structure/variables/render_path.py:34
+msgid "Common prefix"
+msgstr "公共前綴"
+
+#: report/structure/variables/render_path.py:39
+msgid "Unique stems"
+msgstr "唯一詞幹"
+
+#: report/structure/variables/render_path.py:46
+msgid "Unique names"
+msgstr "唯一數據點名稱"
+
+#: report/structure/variables/render_path.py:53
+msgid "Unique extensions"
+msgstr "唯一擴充"
+
+#: report/structure/variables/render_path.py:61
+msgid "Unique directories"
+msgstr "唯一目錄"
+
+#: report/structure/variables/render_path.py:69
+msgid "Unique anchors"
+msgstr "唯一錨點"
+
+#: report/structure/variables/render_real.py:60
+#: report/structure/variables/render_timeseries.py:123
+msgid "Infinite"
+msgstr "無限大或小"
+
+#: report/structure/variables/render_real.py:65
+#: report/structure/variables/render_timeseries.py:128
+msgid "Infinite (%)"
+msgstr "無限大或小 (%)"
+
+#: report/structure/variables/render_real.py:103
+msgid "Negative"
+msgstr "負數"
+
+#: report/structure/variables/render_real.py:108
+msgid "Negative (%)"
+msgstr "負數率 (%)"
+
+#: report/structure/variables/render_real.py:149
+#: report/structure/variables/render_timeseries.py:191
+msgid "5-th percentile"
+msgstr "五分位數"
+
+#: report/structure/variables/render_real.py:153
+#: report/structure/variables/render_timeseries.py:195
+msgid "Q1"
+msgstr "第一四分位數"
+
+#: report/structure/variables/render_real.py:157
+#: report/structure/variables/render_timeseries.py:199
+msgid "median"
+msgstr "中位數"
+
+#: report/structure/variables/render_real.py:161
+#: report/structure/variables/render_timeseries.py:203
+msgid "Q3"
+msgstr "第三四分位數"
+
+#: report/structure/variables/render_real.py:165
+#: report/structure/variables/render_timeseries.py:207
+msgid "95-th percentile"
+msgstr "第 95 百分位數"
+
+#: report/structure/variables/render_real.py:173
+#: report/structure/variables/render_timeseries.py:215
+msgid "Range"
+msgstr "範圍"
+
+#: report/structure/variables/render_real.py:179
+#: report/structure/variables/render_timeseries.py:221
+msgid "Interquartile range (IQR)"
+msgstr "四分位距"
+
+#: report/structure/variables/render_real.py:183
+#: report/structure/variables/render_timeseries.py:225
+msgid "Quantile statistics"
+msgstr "分位數統計"
+
+#: report/structure/variables/render_real.py:190
+#: report/structure/variables/render_timeseries.py:232
+msgid "Standard deviation"
+msgstr "標準差"
+
+#: report/structure/variables/render_real.py:194
+#: report/structure/variables/render_timeseries.py:236
+msgid "Coefficient of variation (CV)"
+msgstr "變異係數 (CV)"
+
+#: report/structure/variables/render_real.py:198
+#: report/structure/variables/render_timeseries.py:240
+msgid "Kurtosis"
+msgstr "峰度"
+
+#: report/structure/variables/render_real.py:210
+#: report/structure/variables/render_timeseries.py:252
+msgid "Median Absolute Deviation (MAD)"
+msgstr "中位數絕對偏差 (MAD)"
+
+#: report/structure/variables/render_real.py:214
+#: report/structure/variables/render_timeseries.py:256
+msgid "Skewness"
+msgstr "偏度"
+
+#: report/structure/variables/render_real.py:221
+#: report/structure/variables/render_timeseries.py:263
+msgid "Sum"
+msgstr "總和"
+
+#: report/structure/variables/render_real.py:225
+#: report/structure/variables/render_timeseries.py:267
+msgid "Variance"
+msgstr "變異數"
+
+#: report/structure/variables/render_real.py:231
+#: report/structure/variables/render_timeseries.py:273
+msgid "Monotonicity"
+msgstr "單調性"
+
+#: report/structure/variables/render_real.py:235
+#: report/structure/variables/render_timeseries.py:281
+msgid "Descriptive statistics"
+msgstr "描述統計"
+
+#: report/structure/variables/render_real.py:242
+#: report/structure/variables/render_timeseries.py:288
+msgid "Statistics"
+msgstr "統計數據"
+
+#: report/structure/variables/render_real.py:279
+#: report/structure/variables/render_timeseries.py:324
+msgid "Minimum {} values"
+msgstr "最小 {} 值"
+
+#: report/structure/variables/render_real.py:286
+#: report/structure/variables/render_timeseries.py:331
+msgid "Maximum {} values"
+msgstr "最大 {} 值"
+
+#: report/structure/variables/render_timeseries.py:29
+msgid "number of gaps"
+msgstr "缺失數據個數"
+
+#: report/structure/variables/render_timeseries.py:35
+msgid "min"
+msgstr "最小值"
+
+#: report/structure/variables/render_timeseries.py:41
+msgid "max"
+msgstr "最大值"
+
+#: report/structure/variables/render_timeseries.py:47
+msgid "mean"
+msgstr "平均值"
+
+#: report/structure/variables/render_timeseries.py:53
+msgid "std"
+msgstr "標準差"
+
+#: report/structure/variables/render_timeseries.py:62
+msgid "Gap statistics"
+msgstr "差距統計"
+
+#: report/structure/variables/render_timeseries.py:79
+msgid "Gap analysis"
+msgstr "差距分析"
+
+#: report/structure/variables/render_timeseries.py:88
+msgid "Numeric time series"
+msgstr "數值時間序列"
+
+#: report/structure/variables/render_timeseries.py:277
+msgid "Augmented Dickey-Fuller test p-value"
+msgstr "增強迪基-福勒 (ADF) 檢驗 p 值"
+
+#: report/structure/variables/render_timeseries.py:346
+msgid "Autocorrelation"
+msgstr "自相關"
+
+#: report/structure/variables/render_timeseries.py:354
+msgid "Time-series"
+msgstr "時間序列"
+
+#: report/structure/variables/render_url.py:33
+msgid "Full"
+msgstr "全體"
+
+#: report/structure/variables/render_url.py:39
+msgid "Scheme"
+msgstr "網址方案 (Scheme)"
+
+#: report/structure/variables/render_url.py:45
+msgid "Netloc"
+msgstr "網址位置 (Netloc)"
+
+#: report/structure/variables/render_url.py:51
+msgid "Path"
+msgstr "網址路徑 (Path)"
+
+#: report/structure/variables/render_url.py:57
+msgid "Query"
+msgstr "網址查詢字串"
+
+#: report/structure/variables/render_url.py:63
+msgid "Fragment"
+msgstr "網址片段 (Fragment)"
+
+#: report/structure/variables/render_url.py:77
+msgid "url stats"
+msgstr "網址統計"
+
+#~ msgid "row"
+#~ msgstr "列"
