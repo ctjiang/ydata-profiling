@@ -20,7 +20,8 @@ from ydata_profiling.config import Settings
 from ydata_profiling.utils.common import convert_timestamp_to_datetime
 from ydata_profiling.visualisation.context import manage_matplotlib_context
 from ydata_profiling.visualisation.utils import plot_360_n0sc0pe
-
+import matplotlib.font_manager as fm
+from pathlib import Path
 
 def format_fn(tick_val: int, tick_pos: Any) -> str:
     return convert_timestamp_to_datetime(tick_val).strftime("%Y-%m-%d %H:%M:%S")
@@ -66,6 +67,9 @@ def _plot_histogram(
     Returns:
         The histogram plot.
     """
+    font_path = Path(Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf").resolve() 
+    myfont = fm.FontProperties(fname=font_path)
+
     # we have precomputed the histograms...
     if isinstance(bins, list):
         n_labels = len(config.html.style._labels)
@@ -96,12 +100,12 @@ def _plot_histogram(
             fig.xticklabels([])
 
         if not hide_yaxis:
-            fig.supylabel("Frequency")
+            fig.supylabel(_("Frequency"), fontproperties=myfont)
     else:
         fig = plt.figure(figsize=figsize)
         plot = fig.add_subplot(111)
         if not hide_yaxis:
-            plot.set_ylabel("Frequency")
+            plot.set_ylabel(_("Frequency"), fontproperties=myfont)
         else:
             plot.axes.get_yaxis().set_visible(False)
 

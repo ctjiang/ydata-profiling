@@ -6,7 +6,7 @@ from ydata_profiling.report.presentation.core.renderable import Renderable
 from ydata_profiling.report.presentation.frequency_table_utils import freq_table
 from ydata_profiling.report.structure.variables.render_path import render_path
 from ydata_profiling.visualisation.plot import histogram
-
+from ydata_profiling.report.formatters import fmt_histogram_caption
 
 def render_file(config: Settings, summary: dict) -> dict:
     varid = summary["varid"]
@@ -26,7 +26,8 @@ def render_file(config: Settings, summary: dict) -> dict:
                 histogram(config, *summary["histogram_file_size"]),
                 image_format=image_format,
                 alt="Size",
-                caption=f"<strong>Histogram with fixed size bins of file sizes (in bytes)</strong> (bins={len(summary['histogram_file_size'][1]) - 1})",
+                #caption=f"<strong>Histogram with fixed size bins of file sizes (in bytes)</strong> (bins={len(summary['histogram_file_size'][1]) - 1})",
+                caption = fmt_histogram_caption(str(len(summary['histogram_file_size'][1]) - 1), True),
                 name=_("File size"),
                 anchor_id=f"{varid}file_size_histogram",
             )

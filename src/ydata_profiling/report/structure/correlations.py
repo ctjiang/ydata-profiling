@@ -27,7 +27,7 @@ def get_correlation_items(
         "kendall": (-1, "Kendall's τ"),
         "phi_k": (0, "Phik (φk)"),
         "cramers": (0, "Cramér's V (φc)"),
-        "auto": (-1, "Auto"),
+        "auto": (-1, _("Auto")),
     }
 
     image_format = config.plot.image_format

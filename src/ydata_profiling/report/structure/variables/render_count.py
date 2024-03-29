@@ -4,6 +4,7 @@ from ydata_profiling.report.formatters import (
     fmt_bytesize,
     fmt_numeric,
     fmt_percent,
+    fmt_histogram_caption,
 )
 from ydata_profiling.report.presentation.core import (
     Container,
@@ -109,7 +110,8 @@ def render_count(config: Settings, summary: dict) -> dict:
             histogram(config, *summary["histogram"]),
             image_format=image_format,
             alt="Histogram",
-            caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
+            #caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
+            caption= fmt_histogram_caption(str(len(summary['histogram'][1]) - 1)),
             name=_("Histogram"),
             anchor_id="histogram",
         )

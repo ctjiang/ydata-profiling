@@ -6,6 +6,7 @@ from ydata_profiling.report.formatters import (
     fmt_numeric,
     fmt_percent,
     fmt_timespan_timedelta,
+    fmt_histogram_caption,
 )
 from ydata_profiling.report.presentation.core import (
     Container,
@@ -295,10 +296,12 @@ def render_timeseries(config: Settings, summary: dict) -> dict:
             [x[0] for x in summary["histogram"]],
             [x[1] for x in summary["histogram"]],
         )
-        hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][0][1]) - 1})"
+        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][0][1]) - 1})"
+        hist_caption = fmt_histogram_caption(str(len(summary['histogram'][0][1]) - 1))
     else:
         hist_data = histogram(config, *summary["histogram"])
-        hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
+        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
+        hist_caption = fmt_histogram_caption(str(len(summary['histogram'][1]) - 1))
 
     hist = Image(
         hist_data,

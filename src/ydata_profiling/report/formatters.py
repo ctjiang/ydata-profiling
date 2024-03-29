@@ -305,17 +305,17 @@ def fmt(value: Any) -> str:
 @list_args
 def fmt_monotonic(value: int) -> str:
     if value == 2:
-        return "Strictly increasing"
+        return _("Strictly increasing")
     elif value == 1:
-        return "Increasing"
+        return _("Increasing")
     elif value == 0:
-        return "Not monotonic"
+        return _("Not monotonic")
     elif value == -1:
-        return "Decreasing"
+        return _("Decreasing")
     elif value == -2:
-        return "Strictly decreasing"
+        return _("Strictly decreasing")
     else:
-        raise ValueError("Value should be integer ranging from -2 to 2.")
+        raise ValueError(_("Value should be integer ranging from -2 to 2."))
 
 
 def help(title: str, url: Optional[str] = None) -> str:
@@ -337,3 +337,12 @@ def help(title: str, url: Optional[str] = None) -> str:
 @list_args
 def fmt_badge(value: str) -> str:
     return re.sub(r"\((\d+)\)", r'<span class="badge">\1</span>', value)
+
+@list_args
+def fmt_histogram_caption(value: str, isFilesize: bool = False) -> str:
+    captionNormal = _("Histogram with fixed size bins")
+    captionFilesize = _("Histogram with fixed size bins of file sizes (in bytes)")
+    if isFilesize is False:
+        return f"<strong>{captionNormal}</strong> (bins={value})"
+    else:
+        return f"<strong>{captionFilesize}</strong> (bins={value})"

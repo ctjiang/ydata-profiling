@@ -35,7 +35,7 @@ def render_categorical_frequency(
                 "name": _("Unique"),
                 "value": fmt_number(summary["n_unique"]),
                 "hint": help(
-                    "The number of unique values (all values that occur exactly once in the dataset)."
+                    _("The number of unique values (all values that occur exactly once in the dataset).")
                 ),
                 "alert": "n_unique" in summary["alert_fields"],
             },

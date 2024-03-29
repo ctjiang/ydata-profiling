@@ -5,6 +5,7 @@ from ydata_profiling.report.formatters import (
     fmt_monotonic,
     fmt_numeric,
     fmt_percent,
+    fmt_histogram_caption,
 )
 from ydata_profiling.report.presentation.core import (
     Container,
@@ -250,10 +251,12 @@ def render_real(config: Settings, summary: dict) -> dict:
             [x[1] for x in summary.get("histogram", [])],
         )
         bins = len(summary["histogram"][0][1]) - 1 if "histogram" in summary else 0
-        hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={bins})"
+        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={bins})"
+        hist_caption = fmt_histogram_caption(str(bins))
     else:
         hist_data = histogram(config, *summary["histogram"])
-        hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
+        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
+        hist_caption = fmt_histogram_caption(str(len(summary['histogram'][1]) - 1))
 
     hist = Image(
         hist_data,
