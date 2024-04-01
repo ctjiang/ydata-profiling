@@ -1,1 +1,1 @@
-<a href="#pp_var_{{ alert.anchor_id }}"><code>{{ alert.column_name }}</code></a> has a high cardinality: {{ alert.values['n_distinct'] }} distinct values
+<a href="#pp_var_{{ alert.anchor_id }}"><code>{{ alert.column_name }}</code></a> {{ alter_desc.high_cardinality[0] }}: {{ alert.values['n_distinct'] }} {{ alter_desc.high_cardinality[1] }}

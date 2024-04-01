@@ -123,7 +123,8 @@ class Alert:
             num = len(self.values["fields"])
             title = ", ".join(self.values["fields"])
             corr = self.values["corr"]
-            name = f'<abbr title="This variable has a high {corr} correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'
+            #name = f'<abbr title="This variable has a high {corr} correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'
+            name = _('<abbr title="This variable has a high {} correlation with {} fields: {}">HIGH CORRELATION</abbr>').format(corr, num, title)
         return name
 
     def _get_description(self) -> str:
@@ -134,7 +135,8 @@ class Alert:
         """
         alert_type = self.alert_type.name
         column = self.column_name
-        return f"[{alert_type}] alert on column {column}"
+        #return f"[{alert_type}] alert on column {column}"
+        return _("[{}] alert on column {}").format(alert_type, column)
 
     def __repr__(self):
         return self._get_description()
@@ -156,7 +158,8 @@ class ConstantLengthAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] has a constant length"
+        #return f"[{self.column_name}] has a constant length"
+        return _("[{}] has a constant length").format(self.column_name)
 
 
 class ConstantAlert(Alert):
@@ -175,7 +178,8 @@ class ConstantAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] has a constant value"
+       # return f"[{self.column_name}] has a constant value"
+         return _("[{}] has a constant value").format(self.column_name)
 
 
 class DuplicatesAlert(Alert):
@@ -195,9 +199,10 @@ class DuplicatesAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            return f"Dataset has {self.values['n_duplicates']} ({fmt_percent(self.values['p_duplicates'])}) duplicate rows"
+            #return f"Dataset has {self.values['n_duplicates']} ({fmt_percent(self.values['p_duplicates'])}) duplicate rows"
+            return _("Dataset has {} ({}) duplicate rows").format(self.values['n_duplicates'], fmt_percent(self.values['p_duplicates']))
         else:
-            return "Dataset has duplicated values"
+            return _("Dataset has duplicated values")
 
 
 class EmptyAlert(Alert):
@@ -216,7 +221,7 @@ class EmptyAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return "Dataset is empty"
+        return _("Dataset is empty")
 
 
 class HighCardinalityAlert(Alert):
@@ -236,9 +241,10 @@ class HighCardinalityAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            return f"[{self.column_name}] has {self.values['n_distinct']:} ({fmt_percent(self.values['p_distinct'])}) distinct values"
+            #return f"[{self.column_name}] has {self.values['n_distinct']:} ({fmt_percent(self.values['p_distinct'])}) distinct values"
+            return _("[{}] has {} ({}) distinct values").format(self.column_name, self.values['n_distinct'], fmt_percent(self.values['p_distinct']))
         else:
-            return f"[{self.column_name}] has a high cardinality"
+            return _("[{}] has a high cardinality").format(self.column_name)
 
 
 class HighCorrelationAlert(Alert):
@@ -257,12 +263,14 @@ class HighCorrelationAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            description = f"[{self.column_name}] is highly {self.values['corr']} correlated with [{self.values['fields'][0]}]"
+            #description = f"[{self.column_name}] is highly {self.values['corr']} correlated with [{self.values['fields'][0]}]"
+            description = "[{}] is highly {} correlated with [{}]".format(self.column_name, self.values['corr'], self.values['fields'][0])
             if len(self.values["fields"]) > 1:
-                description += f" and {len(self.values['fields']) - 1} other fields"
+                description +=  _(" and {} other fields").format(len(self.values['fields']) - 1) #f" and {len(self.values['fields']) - 1} other fields"
         else:
             return (
-                f"[{self.column_name}] has a high correlation with one or more colums"
+                #f"[{self.column_name}] has a high correlation with one or more colums"
+                _("[{}] has a high correlation with one or more colums").format(self.column_name)
             )
         return description
 
@@ -283,7 +291,7 @@ class ImbalanceAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        description = f"[{self.column_name}] is highly imbalanced"
+        description = _("[{}] is highly imbalanced").format(self.column_name) #f"[{self.column_name}] is highly imbalanced"
         if self.values is not None:
             return description + f" ({self.values['imbalance']})"
         else:
@@ -307,9 +315,10 @@ class InfiniteAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            return f"[{self.column_name}] has {self.values['n_infinite']} ({fmt_percent(self.values['p_infinite'])}) infinite values"
+            #return f"[{self.column_name}] has {self.values['n_infinite']} ({fmt_percent(self.values['p_infinite'])}) infinite values"
+            return _("[{}] has {} ({}) infinite values").format(self.column_name, self.values['n_infinite'], fmt_percent(self.values['p_infinite']))
         else:
-            return f"[{self.column_name}] has infinite values"
+            return _("[{}] has infinite values").format(self.column_name) #f"[{self.column_name}] has infinite values"
 
 
 class MissingAlert(Alert):

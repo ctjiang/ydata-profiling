@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-03-29 13:51+0800\n"
-"PO-Revision-Date: 2024-03-29 13:52+0800\n"
+"POT-Creation-Date: 2024-04-01 17:15+0800\n"
+"PO-Revision-Date: 2024-04-01 17:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -73,8 +73,9 @@ msgstr ""
 "X-Poedit-SearchPath-59: report/presentation/frequency_table_utils.py\n"
 "X-Poedit-SearchPath-60: report/presentation/core/dropdown.py\n"
 "X-Poedit-SearchPath-61: report/presentation/core/frequency_table.py\n"
-"X-Poedit-SearchPath-62: report/formatters.py\n"
-"X-Poedit-SearchPath-63: visualisation/plot.py\n"
+"X-Poedit-SearchPath-62: report/presentation/flavours/html/alerts.py\n"
+"X-Poedit-SearchPath-63: report/formatters.py\n"
+"X-Poedit-SearchPath-64: visualisation/plot.py\n"
 
 #: model/missing.py:38 report/presentation/core/frequency_table.py:14
 msgid "Count"
@@ -82,7 +83,7 @@ msgstr "計數"
 
 #: model/missing.py:39
 msgid "A simple visualization of nullity by column."
-msgstr "依欄位顯示空值的簡單視覺化."
+msgstr "依欄位顯示空值的簡單視覺化。"
 
 #: model/missing.py:44
 msgid "Matrix"
@@ -92,7 +93,7 @@ msgstr "矩陣"
 msgid ""
 "Nullity matrix is a data-dense display which lets you quickly visually pick "
 "out patterns in data completion."
-msgstr "空值矩陣是一種高密度資料呈現方式，可讓您快速直觀地找出資料填補模式."
+msgstr "無效矩陣是一種資料密集顯示，可讓您快速直觀地找出資料補全中的模式。"
 
 #: model/missing.py:50 report/structure/correlations.py:93
 msgid "Heatmap"
@@ -103,8 +104,7 @@ msgid ""
 "The correlation heatmap measures nullity correlation: how strongly the "
 "presence or absence of one variable affects the presence of another."
 msgstr ""
-"相關熱圖量測空值相關性：一個變數的資料存在或缺失，會在多大程度上影響另一個變"
-"數的資料存在與否."
+"相關熱圖衡量無效相關性：一個變數的存在或不存在對另一個變數的存在的影響程度。"
 
 #: model/pandas/sample_pandas.py:26
 msgid "First rows"
@@ -128,7 +128,7 @@ msgstr "遞增"
 
 #: report/formatters.py:312
 msgid "Not monotonic"
-msgstr "非單調"
+msgstr "單調性"
 
 #: report/formatters.py:314
 msgid "Decreasing"
@@ -144,11 +144,11 @@ msgstr "值應為 -2 到 2 之間的整數。"
 
 #: report/formatters.py:343
 msgid "Histogram with fixed size bins"
-msgstr "固定大小箱直方圖"
+msgstr "具有固定大小區間的直方圖"
 
 #: report/formatters.py:344
 msgid "Histogram with fixed size bins of file sizes (in bytes)"
-msgstr "以固定大小箱劃分檔案大小的直方圖 (單位：位元組)"
+msgstr "以固定大小區昌劃分檔案大小的直方圖 (單位：位元組)"
 
 #: report/presentation/core/dropdown.py:30
 msgid "Select Columns"
@@ -161,6 +161,105 @@ msgstr "值"
 #: report/presentation/core/frequency_table.py:15
 msgid "Frequency (%)"
 msgstr "頻率 (%)"
+
+#: report/presentation/flavours/html/alerts.py:28
+msgid "has constant length"
+msgstr "具有恆定的長度"
+
+#: report/presentation/flavours/html/alerts.py:29
+msgid "has constant value"
+msgstr "具有恆定值"
+
+#: report/presentation/flavours/html/alerts.py:30
+msgid "Dataset has"
+msgstr "數據集有"
+
+#: report/presentation/flavours/html/alerts.py:30
+msgid "duplicate rows"
+msgstr "重複行"
+
+#: report/presentation/flavours/html/alerts.py:31
+msgid "Dataset is empty"
+msgstr "資料集為空"
+
+#: report/presentation/flavours/html/alerts.py:32
+msgid "has a high cardinality"
+msgstr "具有高基數"
+
+#: report/presentation/flavours/html/alerts.py:32
+msgid "distinct values"
+msgstr "缺失值"
+
+#: report/presentation/flavours/html/alerts.py:33
+msgid "is highly"
+msgstr "具高度的"
+
+#: report/presentation/flavours/html/alerts.py:33
+msgid "correlated with"
+msgstr "與之相關"
+
+#: report/presentation/flavours/html/alerts.py:33
+msgid "and"
+msgstr "且"
+
+#: report/presentation/flavours/html/alerts.py:33
+msgid "other fields"
+msgstr "其他領域"
+
+#: report/presentation/flavours/html/alerts.py:34
+msgid "is highly imbalanced"
+msgstr "是高度不平衡的"
+
+#: report/presentation/flavours/html/alerts.py:35
+#: report/presentation/flavours/html/alerts.py:36
+#: report/presentation/flavours/html/alerts.py:40
+#: report/presentation/flavours/html/alerts.py:45
+msgid "has"
+msgstr "有"
+
+#: report/presentation/flavours/html/alerts.py:35
+msgid "infinite values"
+msgstr "無限值"
+
+#: report/presentation/flavours/html/alerts.py:36
+msgid "missing values"
+msgstr "缺失值"
+
+#: report/presentation/flavours/html/alerts.py:37
+msgid "is non stationary"
+msgstr "是非平穩的"
+
+#: report/presentation/flavours/html/alerts.py:38
+msgid "is seasonal"
+msgstr "是季節性的"
+
+#: report/presentation/flavours/html/alerts.py:39
+msgid "is highly skewed"
+msgstr "是高度傾斜的"
+
+#: report/presentation/flavours/html/alerts.py:40
+msgid "truncated files"
+msgstr "被截斷的文件"
+
+#: report/presentation/flavours/html/alerts.py:41
+msgid "only contains datetime values, but is categorical. Consider applying"
+msgstr "僅包含日期時間值，但是確是分類的。 考慮使用"
+
+#: report/presentation/flavours/html/alerts.py:42
+msgid "is uniformly distributed"
+msgstr "是均勻分佈的"
+
+#: report/presentation/flavours/html/alerts.py:43
+msgid "has unique values"
+msgstr "具有單一值"
+
+#: report/presentation/flavours/html/alerts.py:44
+msgid "is an unsupported type, check if it needs cleaning or further analysis"
+msgstr "是不受支援的類型，檢查是否需要清洗或進一步分析"
+
+#: report/presentation/flavours/html/alerts.py:45
+msgid "zeros"
+msgstr "零值"
 
 #: report/presentation/frequency_table_utils.py:51
 msgid "Other values ({})"
@@ -202,11 +301,11 @@ msgstr "觀察次數"
 
 #: report/structure/overview.py:36
 msgid "Missing cells"
-msgstr "缺失細胞"
+msgstr "缺失儲存格"
 
 #: report/structure/overview.py:40
 msgid "Missing cells (%)"
-msgstr "缺失細胞率（%）"
+msgstr "缺失儲存格率（%）"
 
 #: report/structure/overview.py:48 report/structure/report.py:439
 msgid "Duplicate rows"
@@ -274,7 +373,7 @@ msgstr "下載配置"
 
 #: report/structure/overview.py:177 report/structure/overview.py:184
 msgid "Reproduction"
-msgstr "再生產"
+msgstr "再現性"
 
 #: report/structure/overview.py:207
 msgid "Variable descriptions"
@@ -314,7 +413,7 @@ msgstr "時間序列統計"
 
 #: report/structure/overview.py:316
 msgid "Original"
-msgstr "原來的"
+msgstr "原始"
 
 #: report/structure/overview.py:323
 msgid "Scaled"
@@ -330,7 +429,7 @@ msgstr "更多細節"
 
 #: report/structure/report.py:219
 msgid "Most frequently occurring"
-msgstr "最常出現的"
+msgstr "最常出現"
 
 #: report/structure/report.py:401
 msgid "Interactions"
@@ -491,7 +590,7 @@ msgstr "Unicode 類別（點擊查看更多資訊）"
 
 #: report/structure/variables/render_categorical.py:263
 msgid "Distinct scripts"
-msgstr "不同的腳本清楚的"
+msgstr "不同的腳本"
 
 #: report/structure/variables/render_categorical.py:266
 msgid "Unicode scripts (click for more information)"
@@ -499,7 +598,7 @@ msgstr "Unicode 腳本（點擊了解更多）"
 
 #: report/structure/variables/render_categorical.py:272
 msgid "Distinct blocks"
-msgstr "不同的區塊清楚的"
+msgstr "不同的區塊"
 
 #: report/structure/variables/render_categorical.py:275
 msgid "Unicode blocks (click for more information)"
@@ -630,7 +729,7 @@ msgstr "複平面上的散佈圖"
 
 #: report/structure/variables/render_complex.py:93
 msgid "Scatter"
-msgstr "分散"
+msgstr "散佈"
 
 #: report/structure/variables/render_count.py:115
 #: report/structure/variables/render_date.py:114
@@ -714,11 +813,11 @@ msgstr "最大面積"
 
 #: report/structure/variables/render_image.py:131
 msgid "Scatter plot of image sizes"
-msgstr "影像大小的散點圖"
+msgstr "影像大小的散佈圖"
 
 #: report/structure/variables/render_image.py:132
 msgid "Scatter plot"
-msgstr "散點圖"
+msgstr "散佈圖"
 
 #: report/structure/variables/render_image.py:150
 msgid "Dimensions"
@@ -801,7 +900,7 @@ msgstr "第三四分位數"
 #: report/structure/variables/render_real.py:166
 #: report/structure/variables/render_timeseries.py:208
 msgid "95-th percentile"
-msgstr "第 95 百分位數"
+msgstr "95百分位值"
 
 #: report/structure/variables/render_real.py:174
 #: report/structure/variables/render_timeseries.py:216
@@ -950,7 +1049,7 @@ msgstr "網址片段 (Fragment)"
 msgid "url stats"
 msgstr "網址統計"
 
-#: visualisation/plot.py:99 visualisation/plot.py:104
+#: visualisation/plot.py:103 visualisation/plot.py:108
 msgid "Frequency"
 msgstr "頻率"
 
