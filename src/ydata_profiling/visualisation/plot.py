@@ -37,7 +37,8 @@ def _plot_word_cloud(
     for i, series_data in enumerate(series):
         word_dict = series_data.to_dict()
         wordcloud = WordCloud(
-            background_color="white", random_state=123, width=300, height=200, scale=2
+            background_color="white", random_state=123, width=300, height=200, scale=2, 
+            font_path=Path(Path(__file__).parent.parent, 'locales/fonts/NotoSansTC-Regular.ttf')
         ).generate_from_frequencies(word_dict)
 
         ax = plot.add_subplot(1, len(series), i + 1)
