@@ -124,7 +124,8 @@ class Alert:
             title = ", ".join(self.values["fields"])
             corr = self.values["corr"]
             #name = f'<abbr title="This variable has a high {corr} correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'
-            name = _('<abbr title="This variable has a high {} correlation with {} fields: {}">HIGH CORRELATION</abbr>').format(corr, num, title)
+            name = '<abbr title="{}">{}</abbr>'.format(_("This variable has a high {0} correlation with {1} fields: {2}").format(corr, num, title), 
+                                                       _('HIGH CORRELATION'))
         return name
 
     def _get_description(self) -> str:
@@ -338,9 +339,10 @@ class MissingAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            return f"[{self.column_name}] {self.values['n_missing']} ({fmt_percent(self.values['p_missing'])}) missing values"
+            #return f"[{self.column_name}] {self.values['n_missing']} ({fmt_percent(self.values['p_missing'])}) missing values"
+            return _("[{}] {} ({}) missing values").format(self.column_name, fmt_percent(self.values['n_missing'], self.values['p_missing']))
         else:
-            return f"[{self.column_name}] has missing values"
+            return _("[{}] has missing values").format(self.column_name) #f"[{self.column_name}] has missing values"
 
 
 class NonStationaryAlert(Alert):
@@ -358,7 +360,7 @@ class NonStationaryAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] is non stationary"
+        return _("[{}] is non stationary").format(self.column_name) #f"[{self.column_name}] is non stationary"
 
 
 class SeasonalAlert(Alert):
@@ -376,7 +378,7 @@ class SeasonalAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] is seasonal"
+        return _("[{}] is seasonal").format(self.column_name) #f"[{self.column_name}] is seasonal"
 
 
 class SkewedAlert(Alert):
@@ -395,7 +397,7 @@ class SkewedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        description = f"[{self.column_name}] is highly skewed"
+        description = _("[{}] is highly skewed").format(self.column_name) #f"[{self.column_name}] is highly skewed"
         if self.values is not None:
             return description + f"(\u03b31 = {self.values['skewness']})"
         else:
@@ -417,7 +419,8 @@ class TypeDateAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`"
+        #return f"[{self.column_name}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`"
+        return _("[{}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`").format(self.column_name)
 
 
 class UniformAlert(Alert):
@@ -435,7 +438,8 @@ class UniformAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] is uniformly distributed"
+        #return f"[{self.column_name}] is uniformly distributed"
+        return _("[{}] is uniformly distributed").format(self.column_name)
 
 
 class UniqueAlert(Alert):
@@ -454,7 +458,7 @@ class UniqueAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] has unique values"
+        return _("[{}] has unique values").format(self.column_name) #f"[{self.column_name}] has unique values"
 
 
 class UnsupportedAlert(Alert):
@@ -472,7 +476,8 @@ class UnsupportedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] is an unsupported type, check if it needs cleaning or further analysis"
+        #return f"[{self.column_name}] is an unsupported type, check if it needs cleaning or further analysis"
+        return _("[{}] is an unsupported type, check if it needs cleaning or further analysis").format(self.column_name)
 
 
 class ZerosAlert(Alert):
@@ -492,9 +497,10 @@ class ZerosAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            return f"[{self.column_name}] has {self.values['n_zeros']} ({fmt_percent(self.values['p_zeros'])}) zeros"
+            #return f"[{self.column_name}] has {self.values['n_zeros']} ({fmt_percent(self.values['p_zeros'])}) zeros"
+            return _("[{}] has {} ({}) zeros").format(self.column_name, fmt_percent(self.values['n_zeros'], self.values['p_zeros']))
         else:
-            return f"[{self.column_name}] has predominantly zeros"
+            return _("[{}] has predominantly zeros").format(self.column_name) #f"[{self.column_name}] has predominantly zeros"
 
 
 class RejectedAlert(Alert):
@@ -512,7 +518,7 @@ class RejectedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return f"[{self.column_name}] was rejected"
+        return _("[{}] was rejected").format(self.column_name) #f"[{self.column_name}] was rejected"
 
 
 def check_table_alerts(table: dict) -> List[Alert]:

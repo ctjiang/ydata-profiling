@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2024-04-01 17:15+0800\n"
-"PO-Revision-Date: 2024-04-01 17:15+0800\n"
+"POT-Creation-Date: 2024-04-02 11:18+0800\n"
+"PO-Revision-Date: 2024-04-02 12:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -76,6 +76,118 @@ msgstr ""
 "X-Poedit-SearchPath-62: report/presentation/flavours/html/alerts.py\n"
 "X-Poedit-SearchPath-63: report/formatters.py\n"
 "X-Poedit-SearchPath-64: visualisation/plot.py\n"
+
+#: model/alerts.py:127
+#, python-brace-format
+msgid "This variable has a high {0} correlation with {1} fields: {2}"
+msgstr "此變數與 下列 {1} 個欄位具有較高的 {0} 相關性：{2}"
+
+#: model/alerts.py:128
+msgid "HIGH CORRELATION"
+msgstr "高相關性"
+
+#: model/alerts.py:140
+msgid "[{}] alert on column {}"
+msgstr "[{}] 警報，欄位 {}"
+
+#: model/alerts.py:163
+msgid "[{}] has a constant length"
+msgstr "[{}] 具有恆定的長度"
+
+#: model/alerts.py:183
+msgid "[{}] has a constant value"
+msgstr "[{}] 具有恆定值"
+
+#: model/alerts.py:204
+msgid "Dataset has {} ({}) duplicate rows"
+msgstr "資料集有 {} ({}) 個重複行"
+
+#: model/alerts.py:206
+msgid "Dataset has duplicated values"
+msgstr "資料集有重複值"
+
+#: model/alerts.py:225 report/presentation/flavours/html/alerts.py:31
+msgid "Dataset is empty"
+msgstr "資料集為空"
+
+#: model/alerts.py:246
+msgid "[{}] has {} ({}) distinct values"
+msgstr "[{}] 具有 {} ({}) 個不同的值"
+
+#: model/alerts.py:248
+msgid "[{}] has a high cardinality"
+msgstr "[{}] 具有高基數"
+
+#: model/alerts.py:270
+msgid " and {} other fields"
+msgstr "以及 {} 個其他欄位"
+
+#: model/alerts.py:274
+msgid "[{}] has a high correlation with one or more colums"
+msgstr "[{}] 與一或多行具有高度相關性"
+
+#: model/alerts.py:295
+msgid "[{}] is highly imbalanced"
+msgstr "[{}] 是高度不平衡的"
+
+#: model/alerts.py:320
+msgid "[{}] has {} ({}) infinite values"
+msgstr "[{}] 具有 {} ({}) 個無限值"
+
+#: model/alerts.py:322
+msgid "[{}] has infinite values"
+msgstr "[{}] 具有無限值"
+
+#: model/alerts.py:343
+msgid "[{}] {} ({}) missing values"
+msgstr "[{}] {} ({}) 缺失值"
+
+#: model/alerts.py:345
+msgid "[{}] has missing values"
+msgstr "[{}] 具缺失值"
+
+#: model/alerts.py:363
+msgid "[{}] is non stationary"
+msgstr "[{}] 是非平穩的"
+
+#: model/alerts.py:381
+msgid "[{}] is seasonal"
+msgstr "[{}] 是季節性的"
+
+#: model/alerts.py:400
+msgid "[{}] is highly skewed"
+msgstr "[{}] 是高度傾斜的"
+
+#: model/alerts.py:423
+msgid ""
+"[{}] only contains datetime values, but is categorical. Consider applying "
+"`pd.to_datetime()`"
+msgstr "[{}] 只包含日期時間值，但是是可分類的。 考慮使用 pd.to_datetime()"
+
+#: model/alerts.py:442
+msgid "[{}] is uniformly distributed"
+msgstr "[{}] 是均勻分佈的"
+
+#: model/alerts.py:461
+msgid "[{}] has unique values"
+msgstr "[{}] 具有唯一值"
+
+#: model/alerts.py:480
+msgid ""
+"[{}] is an unsupported type, check if it needs cleaning or further analysis"
+msgstr "[{}] 是不支援的類型，請檢查是否需要清理或進一步分析"
+
+#: model/alerts.py:501
+msgid "[{}] has {} ({}) zeros"
+msgstr "[{}] 有 {} ({}) 個零值"
+
+#: model/alerts.py:503
+msgid "[{}] has predominantly zeros"
+msgstr "[{}] 主要有零值"
+
+#: model/alerts.py:521
+msgid "[{}] was rejected"
+msgstr "[{}] 被拒絕"
 
 #: model/missing.py:38 report/presentation/core/frequency_table.py:14
 msgid "Count"
@@ -177,10 +289,6 @@ msgstr "數據集有"
 #: report/presentation/flavours/html/alerts.py:30
 msgid "duplicate rows"
 msgstr "重複行"
-
-#: report/presentation/flavours/html/alerts.py:31
-msgid "Dataset is empty"
-msgstr "資料集為空"
 
 #: report/presentation/flavours/html/alerts.py:32
 msgid "has a high cardinality"
