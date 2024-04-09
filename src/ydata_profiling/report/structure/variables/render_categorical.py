@@ -35,7 +35,9 @@ def render_categorical_frequency(
                 "name": _("Unique"),
                 "value": fmt_number(summary["n_unique"]),
                 "hint": help(
-                    _("The number of unique values (all values that occur exactly once in the dataset).")
+                    _(
+                        "The number of unique values (all values that occur exactly once in the dataset)."
+                    )
                 ),
                 "alert": "n_unique" in summary["alert_fields"],
             },
@@ -279,7 +281,9 @@ def render_categorical_unicode(
             },
         ],
         name=_("Characters and Unicode"),
-        caption=_("The Unicode Standard assigns character properties to each code point, which can be used to analyse textual variables. "),
+        caption=_(
+            "The Unicode Standard assigns character properties to each code point, which can be used to analyse textual variables. "
+        ),
         style=config.html.style,
     )
 

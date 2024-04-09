@@ -1,8 +1,10 @@
 """Plot functions for the profiling report."""
 import copy
+from pathlib import Path
 from typing import Any, Callable, List, Optional, Tuple, Union
 
 import matplotlib
+import matplotlib.font_manager as fm
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -20,8 +22,7 @@ from ydata_profiling.config import Settings
 from ydata_profiling.utils.common import convert_timestamp_to_datetime
 from ydata_profiling.visualisation.context import manage_matplotlib_context
 from ydata_profiling.visualisation.utils import plot_360_n0sc0pe
-import matplotlib.font_manager as fm
-from pathlib import Path
+
 
 def format_fn(tick_val: int, tick_pos: Any) -> str:
     return convert_timestamp_to_datetime(tick_val).strftime("%Y-%m-%d %H:%M:%S")
@@ -37,8 +38,14 @@ def _plot_word_cloud(
     for i, series_data in enumerate(series):
         word_dict = series_data.to_dict()
         wordcloud = WordCloud(
-            background_color="white", random_state=123, width=300, height=200, scale=2, 
-            font_path=Path(Path(__file__).parent.parent, 'locales/fonts/NotoSansTC-Regular.ttf')
+            background_color="white",
+            random_state=123,
+            width=300,
+            height=200,
+            scale=2,
+            font_path=Path(
+                Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
+            ),
         ).generate_from_frequencies(word_dict)
 
         ax = plot.add_subplot(1, len(series), i + 1)
@@ -68,7 +75,9 @@ def _plot_histogram(
     Returns:
         The histogram plot.
     """
-    font_path = Path(Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf").resolve() 
+    font_path = Path(
+        Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
+    ).resolve()
     myfont = fm.FontProperties(fname=font_path)
 
     # we have precomputed the histograms...

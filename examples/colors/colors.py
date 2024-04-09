@@ -1,13 +1,12 @@
+import locale
 from pathlib import Path
 
 import pandas as pd
 
-import locale
 lcbefore = locale.getdefaultlocale()
 locale.setlocale(category=locale.LC_ALL, locale="zh_TW")
 lcafter = locale.getlocale()
 import gettext
-
 
 from ydata_profiling import ProfileReport
 from ydata_profiling.utils.cache import cache_file

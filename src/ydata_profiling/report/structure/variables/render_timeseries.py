@@ -2,11 +2,11 @@ from ydata_profiling.config import Settings
 from ydata_profiling.report.formatters import (
     fmt,
     fmt_bytesize,
+    fmt_histogram_caption,
     fmt_monotonic,
     fmt_numeric,
     fmt_percent,
     fmt_timespan_timedelta,
-    fmt_histogram_caption,
 )
 from ydata_profiling.report.presentation.core import (
     Container,
@@ -296,12 +296,12 @@ def render_timeseries(config: Settings, summary: dict) -> dict:
             [x[0] for x in summary["histogram"]],
             [x[1] for x in summary["histogram"]],
         )
-        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][0][1]) - 1})"
-        hist_caption = fmt_histogram_caption(str(len(summary['histogram'][0][1]) - 1))
+        # hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][0][1]) - 1})"
+        hist_caption = fmt_histogram_caption(str(len(summary["histogram"][0][1]) - 1))
     else:
         hist_data = histogram(config, *summary["histogram"])
-        #hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
-        hist_caption = fmt_histogram_caption(str(len(summary['histogram'][1]) - 1))
+        # hist_caption = f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})"
+        hist_caption = fmt_histogram_caption(str(len(summary["histogram"][1]) - 1))
 
     hist = Image(
         hist_data,
@@ -323,14 +323,14 @@ def render_timeseries(config: Settings, summary: dict) -> dict:
         [
             FrequencyTable(
                 template_variables["firstn_expanded"],
-                #name=f"Minimum {config.n_extreme_obs} values",
+                # name=f"Minimum {config.n_extreme_obs} values",
                 name=_("Minimum {} values").format(config.n_extreme_obs),
                 anchor_id=f"{varid}firstn",
                 redact=False,
             ),
             FrequencyTable(
                 template_variables["lastn_expanded"],
-                #name=f"Maximum {config.n_extreme_obs} values",
+                # name=f"Maximum {config.n_extreme_obs} values",
                 name=_("Maximum {} values").format(config.n_extreme_obs),
                 anchor_id=f"{varid}lastn",
                 redact=False,

@@ -338,6 +338,7 @@ def help(title: str, url: Optional[str] = None) -> str:
 def fmt_badge(value: str) -> str:
     return re.sub(r"\((\d+)\)", r'<span class="badge">\1</span>', value)
 
+
 @list_args
 def fmt_histogram_caption(value: str, isFilesize: bool = False) -> str:
     captionNormal = _("Histogram with fixed size bins")

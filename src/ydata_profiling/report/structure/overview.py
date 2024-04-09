@@ -22,6 +22,7 @@ from ydata_profiling.report.presentation.core import Table
 from ydata_profiling.report.presentation.core.renderable import Renderable
 from ydata_profiling.visualisation.plot import plot_overview_timeseries
 
+
 def get_dataset_overview(config: Settings, summary: BaseDescription) -> Renderable:
     table_metrics = [
         {
@@ -257,7 +258,7 @@ def get_dataset_alerts(config: Settings, alerts: list) -> Alerts:
 
         return Alerts(
             alerts=combined_alerts,
-            #name=f"Alerts ({count})",
+            # name=f"Alerts ({count})",
             name=_("Alerts ({})").format(count),
             anchor_id="alerts",
             style=config.html.style,
@@ -266,7 +267,7 @@ def get_dataset_alerts(config: Settings, alerts: list) -> Alerts:
     count = len([alert for alert in alerts if alert.alert_type != AlertType.REJECTED])
     return Alerts(
         alerts=alerts,
-        #name=f"Alerts ({count})",
+        # name=f"Alerts ({count})",
         name=_("Alerts ({})").format(count),
         anchor_id="alerts",
         style=config.html.style,
@@ -305,7 +306,9 @@ def get_timeseries_items(config: Settings, summary: BaseDescription) -> Containe
         },
     ]
 
-    ts_info = Table(table_stats, name=_("Timeseries statistics"), style=config.html.style)
+    ts_info = Table(
+        table_stats, name=_("Timeseries statistics"), style=config.html.style
+    )
 
     dpi_bak = config.plot.dpi
     config.plot.dpi = 300

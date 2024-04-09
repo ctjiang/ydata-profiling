@@ -12,8 +12,9 @@ warnings.simplefilter("ignore", category=NumbaDeprecationWarning)
 import importlib.util  # isort:skip # noqa
 import gettext
 from pathlib import Path
-filepath = Path(__file__).parent.joinpath('locales').resolve()
-t = gettext.translation('ydata_profiling', filepath, ['zh_TW'])
+
+filepath = Path(__file__).parent.joinpath("locales").resolve()
+t = gettext.translation("ydata_profiling", filepath, ["zh_TW"])
 t.install()
 
 from ydata_profiling.compare_reports import compare  # isort:skip # noqa

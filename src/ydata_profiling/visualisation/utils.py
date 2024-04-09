@@ -8,6 +8,7 @@ from urllib.parse import quote
 
 import matplotlib.pyplot as plt
 from matplotlib.artist import Artist
+import matplotlib.backends.backend_svg
 
 from ydata_profiling.config import Settings
 

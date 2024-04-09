@@ -123,9 +123,13 @@ class Alert:
             num = len(self.values["fields"])
             title = ", ".join(self.values["fields"])
             corr = self.values["corr"]
-            #name = f'<abbr title="This variable has a high {corr} correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'
-            name = '<abbr title="{}">{}</abbr>'.format(_("This variable has a high {0} correlation with {1} fields: {2}").format(corr, num, title), 
-                                                       _('HIGH CORRELATION'))
+            # name = f'<abbr title="This variable has a high {corr} correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'
+            name = '<abbr title="{}">{}</abbr>'.format(
+                _(
+                    "This variable has a high {0} correlation with {1} fields: {2}"
+                ).format(corr, num, title),
+                _("HIGH CORRELATION"),
+            )
         return name
 
     def _get_description(self) -> str:
@@ -136,7 +140,7 @@ class Alert:
         """
         alert_type = self.alert_type.name
         column = self.column_name
-        #return f"[{alert_type}] alert on column {column}"
+        # return f"[{alert_type}] alert on column {column}"
         return _("[{}] alert on column {}").format(alert_type, column)
 
     def __repr__(self):
@@ -159,7 +163,7 @@ class ConstantLengthAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        #return f"[{self.column_name}] has a constant length"
+        # return f"[{self.column_name}] has a constant length"
         return _("[{}] has a constant length").format(self.column_name)
 
 
@@ -179,8 +183,8 @@ class ConstantAlert(Alert):
         )
 
     def _get_description(self) -> str:
-       # return f"[{self.column_name}] has a constant value"
-         return _("[{}] has a constant value").format(self.column_name)
+        # return f"[{self.column_name}] has a constant value"
+        return _("[{}] has a constant value").format(self.column_name)
 
 
 class DuplicatesAlert(Alert):
@@ -200,8 +204,10 @@ class DuplicatesAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #return f"Dataset has {self.values['n_duplicates']} ({fmt_percent(self.values['p_duplicates'])}) duplicate rows"
-            return _("Dataset has {} ({}) duplicate rows").format(self.values['n_duplicates'], fmt_percent(self.values['p_duplicates']))
+            # return f"Dataset has {self.values['n_duplicates']} ({fmt_percent(self.values['p_duplicates'])}) duplicate rows"
+            return _("Dataset has {} ({}) duplicate rows").format(
+                self.values["n_duplicates"], fmt_percent(self.values["p_duplicates"])
+            )
         else:
             return _("Dataset has duplicated values")
 
@@ -242,8 +248,12 @@ class HighCardinalityAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #return f"[{self.column_name}] has {self.values['n_distinct']:} ({fmt_percent(self.values['p_distinct'])}) distinct values"
-            return _("[{}] has {} ({}) distinct values").format(self.column_name, self.values['n_distinct'], fmt_percent(self.values['p_distinct']))
+            # return f"[{self.column_name}] has {self.values['n_distinct']:} ({fmt_percent(self.values['p_distinct'])}) distinct values"
+            return _("[{}] has {} ({}) distinct values").format(
+                self.column_name,
+                self.values["n_distinct"],
+                fmt_percent(self.values["p_distinct"]),
+            )
         else:
             return _("[{}] has a high cardinality").format(self.column_name)
 
@@ -264,14 +274,20 @@ class HighCorrelationAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #description = f"[{self.column_name}] is highly {self.values['corr']} correlated with [{self.values['fields'][0]}]"
-            description = "[{}] is highly {} correlated with [{}]".format(self.column_name, self.values['corr'], self.values['fields'][0])
+            # description = f"[{self.column_name}] is highly {self.values['corr']} correlated with [{self.values['fields'][0]}]"
+            description = "[{}] is highly {} correlated with [{}]".format(
+                self.column_name, self.values["corr"], self.values["fields"][0]
+            )
             if len(self.values["fields"]) > 1:
-                description +=  _(" and {} other fields").format(len(self.values['fields']) - 1) #f" and {len(self.values['fields']) - 1} other fields"
+                description += _(" and {} other fields").format(
+                    len(self.values["fields"]) - 1
+                )  # f" and {len(self.values['fields']) - 1} other fields"
         else:
             return (
-                #f"[{self.column_name}] has a high correlation with one or more colums"
-                _("[{}] has a high correlation with one or more colums").format(self.column_name)
+                # f"[{self.column_name}] has a high correlation with one or more colums"
+                _("[{}] has a high correlation with one or more colums").format(
+                    self.column_name
+                )
             )
         return description
 
@@ -292,7 +308,9 @@ class ImbalanceAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        description = _("[{}] is highly imbalanced").format(self.column_name) #f"[{self.column_name}] is highly imbalanced"
+        description = _("[{}] is highly imbalanced").format(
+            self.column_name
+        )  # f"[{self.column_name}] is highly imbalanced"
         if self.values is not None:
             return description + f" ({self.values['imbalance']})"
         else:
@@ -316,10 +334,16 @@ class InfiniteAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #return f"[{self.column_name}] has {self.values['n_infinite']} ({fmt_percent(self.values['p_infinite'])}) infinite values"
-            return _("[{}] has {} ({}) infinite values").format(self.column_name, self.values['n_infinite'], fmt_percent(self.values['p_infinite']))
+            # return f"[{self.column_name}] has {self.values['n_infinite']} ({fmt_percent(self.values['p_infinite'])}) infinite values"
+            return _("[{}] has {} ({}) infinite values").format(
+                self.column_name,
+                self.values["n_infinite"],
+                fmt_percent(self.values["p_infinite"]),
+            )
         else:
-            return _("[{}] has infinite values").format(self.column_name) #f"[{self.column_name}] has infinite values"
+            return _("[{}] has infinite values").format(
+                self.column_name
+            )  # f"[{self.column_name}] has infinite values"
 
 
 class MissingAlert(Alert):
@@ -339,10 +363,15 @@ class MissingAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #return f"[{self.column_name}] {self.values['n_missing']} ({fmt_percent(self.values['p_missing'])}) missing values"
-            return _("[{}] {} ({}) missing values").format(self.column_name, fmt_percent(self.values['n_missing'], self.values['p_missing']))
+            # return f"[{self.column_name}] {self.values['n_missing']} ({fmt_percent(self.values['p_missing'])}) missing values"
+            return _("[{}] {} ({}) missing values").format(
+                self.column_name,
+                fmt_percent(self.values["n_missing"], self.values["p_missing"]),
+            )
         else:
-            return _("[{}] has missing values").format(self.column_name) #f"[{self.column_name}] has missing values"
+            return _("[{}] has missing values").format(
+                self.column_name
+            )  # f"[{self.column_name}] has missing values"
 
 
 class NonStationaryAlert(Alert):
@@ -360,7 +389,9 @@ class NonStationaryAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return _("[{}] is non stationary").format(self.column_name) #f"[{self.column_name}] is non stationary"
+        return _("[{}] is non stationary").format(
+            self.column_name
+        )  # f"[{self.column_name}] is non stationary"
 
 
 class SeasonalAlert(Alert):
@@ -378,7 +409,9 @@ class SeasonalAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return _("[{}] is seasonal").format(self.column_name) #f"[{self.column_name}] is seasonal"
+        return _("[{}] is seasonal").format(
+            self.column_name
+        )  # f"[{self.column_name}] is seasonal"
 
 
 class SkewedAlert(Alert):
@@ -397,7 +430,9 @@ class SkewedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        description = _("[{}] is highly skewed").format(self.column_name) #f"[{self.column_name}] is highly skewed"
+        description = _("[{}] is highly skewed").format(
+            self.column_name
+        )  # f"[{self.column_name}] is highly skewed"
         if self.values is not None:
             return description + f"(\u03b31 = {self.values['skewness']})"
         else:
@@ -419,8 +454,10 @@ class TypeDateAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        #return f"[{self.column_name}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`"
-        return _("[{}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`").format(self.column_name)
+        # return f"[{self.column_name}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`"
+        return _(
+            "[{}] only contains datetime values, but is categorical. Consider applying `pd.to_datetime()`"
+        ).format(self.column_name)
 
 
 class UniformAlert(Alert):
@@ -438,7 +475,7 @@ class UniformAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        #return f"[{self.column_name}] is uniformly distributed"
+        # return f"[{self.column_name}] is uniformly distributed"
         return _("[{}] is uniformly distributed").format(self.column_name)
 
 
@@ -458,7 +495,9 @@ class UniqueAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return _("[{}] has unique values").format(self.column_name) #f"[{self.column_name}] has unique values"
+        return _("[{}] has unique values").format(
+            self.column_name
+        )  # f"[{self.column_name}] has unique values"
 
 
 class UnsupportedAlert(Alert):
@@ -476,8 +515,10 @@ class UnsupportedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        #return f"[{self.column_name}] is an unsupported type, check if it needs cleaning or further analysis"
-        return _("[{}] is an unsupported type, check if it needs cleaning or further analysis").format(self.column_name)
+        # return f"[{self.column_name}] is an unsupported type, check if it needs cleaning or further analysis"
+        return _(
+            "[{}] is an unsupported type, check if it needs cleaning or further analysis"
+        ).format(self.column_name)
 
 
 class ZerosAlert(Alert):
@@ -497,10 +538,15 @@ class ZerosAlert(Alert):
 
     def _get_description(self) -> str:
         if self.values is not None:
-            #return f"[{self.column_name}] has {self.values['n_zeros']} ({fmt_percent(self.values['p_zeros'])}) zeros"
-            return _("[{}] has {} ({}) zeros").format(self.column_name, fmt_percent(self.values['n_zeros'], self.values['p_zeros']))
+            # return f"[{self.column_name}] has {self.values['n_zeros']} ({fmt_percent(self.values['p_zeros'])}) zeros"
+            return _("[{}] has {} ({}) zeros").format(
+                self.column_name,
+                fmt_percent(self.values["n_zeros"], self.values["p_zeros"]),
+            )
         else:
-            return _("[{}] has predominantly zeros").format(self.column_name) #f"[{self.column_name}] has predominantly zeros"
+            return _("[{}] has predominantly zeros").format(
+                self.column_name
+            )  # f"[{self.column_name}] has predominantly zeros"
 
 
 class RejectedAlert(Alert):
@@ -518,7 +564,9 @@ class RejectedAlert(Alert):
         )
 
     def _get_description(self) -> str:
-        return _("[{}] was rejected").format(self.column_name) #f"[{self.column_name}] was rejected"
+        return _("[{}] was rejected").format(
+            self.column_name
+        )  # f"[{self.column_name}] was rejected"
 
 
 def check_table_alerts(table: dict) -> List[Alert]:

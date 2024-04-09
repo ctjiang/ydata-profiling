@@ -1,7 +1,12 @@
 from typing import Any, Dict
 
 from ydata_profiling.config import Settings
-from ydata_profiling.report.formatters import fmt, fmt_bytesize, fmt_percent, fmt_histogram_caption
+from ydata_profiling.report.formatters import (
+    fmt,
+    fmt_bytesize,
+    fmt_histogram_caption,
+    fmt_percent,
+)
 from ydata_profiling.report.presentation.core import (
     Container,
     Image,
@@ -109,8 +114,8 @@ def render_date(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
                 hist_data,
                 image_format=image_format,
                 alt="Histogram",
-                #caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
-                caption = fmt_histogram_caption(str(len(summary['histogram'][1]) - 1)),
+                # caption=f"<strong>Histogram with fixed size bins</strong> (bins={len(summary['histogram'][1]) - 1})",
+                caption=fmt_histogram_caption(str(len(summary["histogram"][1]) - 1)),
                 name=_("Histogram"),
                 anchor_id=f"{varid}histogram",
             )
