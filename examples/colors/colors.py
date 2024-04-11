@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 lcbefore = locale.getdefaultlocale()
-locale.setlocale(category=locale.LC_ALL, locale="zh_TW")
+#locale.setlocale(category=locale.LC_ALL, locale="zh_TW")
 lcafter = locale.getlocale()
 import gettext
 

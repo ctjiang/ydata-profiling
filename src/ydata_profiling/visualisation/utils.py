@@ -11,6 +11,8 @@ from matplotlib.artist import Artist
 import matplotlib.backends.backend_svg
 
 from ydata_profiling.config import Settings
+import matplotlib.font_manager as fm
+import sys
 
 
 def hex_to_rgb(hex: str) -> Tuple[float, ...]:
@@ -67,6 +69,7 @@ def plot_360_n0sc0pe(
     if image_format not in mime_types:
         raise ValueError('Can only 360 n0sc0pe "png" or "svg" format.')
 
+    myfont = fm.FontProperties(fontpath())
     if config.html.inline:
         if image_format == "svg":
             image_str = StringIO()
@@ -76,6 +79,7 @@ def plot_360_n0sc0pe(
                 format=image_format,
                 bbox_extra_artists=bbox_extra_artists,
                 bbox_inches=bbox_inches,
+                #fontproperties=myfont,
             )
             plt.close()
             result_string = image_str.getvalue()
@@ -87,6 +91,7 @@ def plot_360_n0sc0pe(
                 format=image_format,
                 bbox_extra_artists=bbox_extra_artists,
                 bbox_inches=bbox_inches,
+                #fontproperties=myfont
             )
             plt.close()
             result_string = base64_image(
@@ -112,3 +117,12 @@ def plot_360_n0sc0pe(
         result_string = suffix
 
     return result_string
+
+def fontpath() -> str:
+    if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+        fp = Path(sys._MEIPASS, 'ydata_profiling', 'locales', 'fonts', 'NotoSansTC-Regular.ttf').resolve()
+    else:
+        fp = Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
+
+    #print(f'font full path: {fp}')
+    return fp

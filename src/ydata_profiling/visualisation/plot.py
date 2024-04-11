@@ -1,6 +1,6 @@
 """Plot functions for the profiling report."""
 import copy
-from pathlib import Path
+#from pathlib import Path
 from typing import Any, Callable, List, Optional, Tuple, Union
 
 import matplotlib
@@ -21,8 +21,18 @@ from wordcloud import WordCloud
 from ydata_profiling.config import Settings
 from ydata_profiling.utils.common import convert_timestamp_to_datetime
 from ydata_profiling.visualisation.context import manage_matplotlib_context
-from ydata_profiling.visualisation.utils import plot_360_n0sc0pe
+from ydata_profiling.visualisation.utils import plot_360_n0sc0pe, fontpath
 
+import sys
+
+# def fontpath() -> str:
+#     if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+#         fp = Path(sys._MEIPASS, 'ydata_profiling', 'locales', 'fonts', 'NotoSansTC-Regular.ttf').resolve()
+#     else:
+#         fp = Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
+
+#     #print(f'font full path: {fp}')
+#     return fp
 
 def format_fn(tick_val: int, tick_pos: Any) -> str:
     return convert_timestamp_to_datetime(tick_val).strftime("%Y-%m-%d %H:%M:%S")
@@ -43,9 +53,7 @@ def _plot_word_cloud(
             width=300,
             height=200,
             scale=2,
-            font_path=Path(
-                Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
-            ),
+            font_path = fontpath(),
         ).generate_from_frequencies(word_dict)
 
         ax = plot.add_subplot(1, len(series), i + 1)
@@ -75,9 +83,7 @@ def _plot_histogram(
     Returns:
         The histogram plot.
     """
-    font_path = Path(
-        Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
-    ).resolve()
+    font_path = fontpath()
     myfont = fm.FontProperties(fname=font_path)
 
     # we have precomputed the histograms...
@@ -253,6 +259,7 @@ def correlation_matrix(config: Settings, data: pd.DataFrame, vmin: int = -1) -> 
       The resulting correlation matrix encoded as a string.
     """
     fig_cor, axes_cor = plt.subplots()
+    myfont = fm.FontProperties(fname=fontpath())
 
     cmap = plt.get_cmap(config.plot.correlation.cmap)
     if vmin == 0:
@@ -279,8 +286,8 @@ def correlation_matrix(config: Settings, data: pd.DataFrame, vmin: int = -1) -> 
     axes_cor.set_yticks(np.arange(0, data.shape[1], float(data.shape[1]) / len(labels)))
 
     font_size = get_correlation_font_size(len(labels))
-    axes_cor.set_xticklabels(labels, rotation=90, fontsize=font_size)
-    axes_cor.set_yticklabels(labels, fontsize=font_size)
+    axes_cor.set_xticklabels(labels, rotation=90, fontsize=font_size, fontproperties=myfont)
+    axes_cor.set_yticklabels(labels, fontsize=font_size, fontproperties=myfont)
     plt.subplots_adjust(bottom=0.2)
 
     return plot_360_n0sc0pe(config)
@@ -871,7 +878,7 @@ def _create_timeseries_heatmap(
     ax.set_yticks([x + 0.5 for x in range(len(df))])
     ax.set_yticklabels(df.index)
     ax.set_xticks([])
-    ax.set_xlabel("Time")
+    ax.set_xlabel(_("Time"))
     ax.invert_yaxis()
     return ax
 
@@ -944,6 +951,8 @@ def missing_bar(
         The plot axis.
     """
     percentage = notnull_counts / nrows
+    myfont = fm.FontProperties(fname=fontpath())
+    
 
     if len(notnull_counts) <= 50:
         ax0 = percentage.plot.bar(figsize=figsize, fontsize=fontsize, color=color)
@@ -952,23 +961,24 @@ def missing_bar(
             ha="right",
             fontsize=fontsize,
             rotation=label_rotation,
+            fontproperties=myfont,
         )
 
         ax1 = ax0.twiny()
         ax1.set_xticks(ax0.get_xticks())
         ax1.set_xlim(ax0.get_xlim())
         ax1.set_xticklabels(
-            notnull_counts, ha="left", fontsize=fontsize, rotation=label_rotation
+            notnull_counts, ha="left", fontsize=fontsize, rotation=label_rotation, fontproperties=myfont
         )
     else:
         ax0 = percentage.plot.barh(figsize=figsize, fontsize=fontsize, color=color)
         ylabels = ax0.get_yticklabels() if labels else []
-        ax0.set_yticklabels(ylabels, fontsize=fontsize)
+        ax0.set_yticklabels(ylabels, fontsize=fontsize, fontproperties=myfont)
 
         ax1 = ax0.twinx()
         ax1.set_yticks(ax0.get_yticks())
         ax1.set_ylim(ax0.get_ylim())
-        ax1.set_yticklabels(notnull_counts, fontsize=fontsize)
+        ax1.set_yticklabels(notnull_counts, fontsize=fontsize, fontproperties=myfont)
 
     for ax in [ax0, ax1]:
         ax = _set_visibility(ax)
@@ -1003,6 +1013,7 @@ def missing_matrix(
     Returns:
         The plot axis.
     """
+    myfont = fm.FontProperties(fname=fontpath())
     width = len(columns)
     missing_grid = np.zeros((height, width, 3), dtype=np.float32)
 
@@ -1019,9 +1030,9 @@ def missing_matrix(
 
     ha = "left"
     ax.set_xticks(list(range(0, width)))
-    ax.set_xticklabels(columns, rotation=label_rotation, ha=ha, fontsize=fontsize)
+    ax.set_xticklabels(columns, rotation=label_rotation, ha=ha, fontsize=fontsize, fontproperties=myfont)
     ax.set_yticks([0, height - 1])
-    ax.set_yticklabels([1, height], fontsize=fontsize)
+    ax.set_yticklabels([1, height], fontsize=fontsize, fontproperties=myfont)
 
     separators = [x + 0.5 for x in range(0, width - 1)]
     for point in separators:
@@ -1064,6 +1075,7 @@ def missing_heatmap(
     Returns:
         The plot axis.
     """
+    myfont = fm.FontProperties(fname=fontpath())
     _, ax = plt.subplots(1, 1, figsize=figsize)
     norm_args = {"vmin": -1, "vmax": 1} if normalized_cmap else {}
 
@@ -1088,8 +1100,9 @@ def missing_heatmap(
         rotation=label_rotation,
         ha="right",
         fontsize=fontsize,
+        fontproperties=myfont,
     )
-    ax.set_yticklabels(ax.yaxis.get_majorticklabels(), rotation=0, fontsize=fontsize)
+    ax.set_yticklabels(ax.yaxis.get_majorticklabels(), rotation=0, fontsize=fontsize, fontproperties=myfont)
     ax = _set_visibility(ax)
     ax.patch.set_visible(False)
 

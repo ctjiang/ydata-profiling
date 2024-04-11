@@ -12,8 +12,13 @@ warnings.simplefilter("ignore", category=NumbaDeprecationWarning)
 import importlib.util  # isort:skip # noqa
 import gettext
 from pathlib import Path
+import sys
 
-filepath = Path(__file__).parent.joinpath("locales").resolve()
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+    filepath = Path(sys._MEIPASS, 'ydata_profiling', 'locales').resolve()
+else:
+    filepath = Path(__file__).parent.joinpath("locales").resolve()
+#print(f'filepath: {filepath}')
 t = gettext.translation("ydata_profiling", filepath, ["zh_TW"])
 t.install()
 
