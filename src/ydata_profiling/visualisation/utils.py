@@ -122,7 +122,7 @@ def fontpath() -> str:
     if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
         fp = Path(sys._MEIPASS, 'ydata_profiling', 'locales', 'fonts', 'NotoSansTC-Regular.ttf').resolve()
     else:
-        fp = Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf"
+        fp = Path(Path(__file__).parent.parent, "locales/fonts/NotoSansTC-Regular.ttf").resolve()
 
     #print(f'font full path: {fp}')
     return fp

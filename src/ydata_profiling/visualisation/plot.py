@@ -375,17 +375,17 @@ def scatter_pairwise(
     Returns:
         A string containing (a reference to) the image
     """
-    plt.xlabel(x_label)
-    plt.ylabel(y_label)
-
+    myfont = fm.FontProperties(fname=fontpath())
+    plt.xlabel(x_label, fontproperties=myfont)
+    plt.ylabel(y_label, fontproperties=myfont)
     color = config.html.style.primary_colors[0]
-
     indices = (series1.notna()) & (series2.notna())
     if len(series1) > config.plot.scatter_threshold:
         cmap = sns.light_palette(color, as_cmap=True)
         plt.hexbin(series1[indices], series2[indices], gridsize=15, cmap=cmap)
     else:
         plt.scatter(series1[indices], series2[indices], color=color)
+    
     return plot_360_n0sc0pe(config)
 
 
