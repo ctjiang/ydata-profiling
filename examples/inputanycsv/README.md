@@ -14,9 +14,9 @@ IISI 資料品質執行檔
     - Open Command Palette
     - 執行Dev Container: Reopen
     - 切換到yada-profiling folder下
-  - 執行setup.py，將ydata-profiling安裝至Python Lib/site-packages 中
+  - 執行`pip install -e .`，將ydata-profiling安裝連結至Python Lib/site-packages 中
 - 開發inputanycsv主程式
   - 切換到 ydata-profiling/examples/inputanycsv
   - 修改inputanycsv.py
 - 編譯執行檔
-  -  pyinstaller inputanycsv.py --collect-all ydata_profiling
+  -  pyinstaller inputanycsv.py --collect-all ydata_profiling -F
