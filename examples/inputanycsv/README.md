@@ -19,4 +19,7 @@ IISI 資料品質執行檔
   - 切換到 ydata-profiling/examples/inputanycsv
   - 修改inputanycsv.py
 - 編譯執行檔
-  -  pyinstaller inputanycsv.py --collect-all ydata_profiling -F
+  - pyinstaller inputanycsv.py --collect-all ydata_profiling -F
+- 產出結果
+  - dist/inputanycsv(.exe) Native executable file，(.exe)表示在Windows下執行檔
+  - inputanycsv.spec 執行pyinstaller所需要的spec檔
