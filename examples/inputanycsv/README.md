@@ -9,12 +9,14 @@ IISI 資料品質執行檔
     - ***prompt>*** python venv
     - 建立app folder
     - pull source code of ydata-profiling from IISI repository
-    - 安裝基本 pythone packages by requirments.txt
+    - 安裝基本 python packages by requirments.txt
   - 使用.devcontainer
     - Open Command Palette
     - 執行Dev Container: Reopen
-    - 切換到yada-profiling folder下
-  - 執行`pip install -e .`，將ydata-profiling安裝連結至Python Lib/site-packages 中
+    - 切換到ydada-profiling folder下
+  - 執行ydata-profiling下的makefile
+    - Windows下，`make.bat all` or `make.bat install`
+    - Linux，MacOS下，`make all` or `make install`
 - 開發inputanycsv主程式
   - 切換到 ydata-profiling/examples/inputanycsv
   - 修改inputanycsv.py
